@@ -2,10 +2,13 @@ import React , {Component} from 'react';
 import Web3 from 'web3';
 import IPFS from 'ipfs';
 import ethTx from 'ethereumjs-tx';
+import writeFileP  from 'write-file-p';
 
 
 import ipfsAPI  from 'ipfs-api';
 import bufferFrom  from 'buffer-from';
+import { write } from 'fs';
+import Email   from 'email-templates'
 
 class UploadControl extends Component{
      web3 =  null;
@@ -248,7 +251,31 @@ if(!err)
     if(!err)
     
     {
-        alert("done!");
+
+        const email = new Email({
+            message: {
+              from: 'gharablipro19933@gmail.com'
+            },
+            // uncomment below to send emails in development/test env:
+            // send: true
+            transport: {
+              jsonTransport: true
+            }
+          });
+          
+          email
+            .send({
+              template: 'mars',
+              message: {
+                to: 'gharablipro2017@hotmail.com'
+              },
+              locals: {
+                name: 'Elon'
+              }
+            })
+            .then(console.log)
+            .catch(console.error);
+ 
     }
       
 
