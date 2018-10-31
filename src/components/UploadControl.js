@@ -2,7 +2,8 @@ import React , {Component} from 'react';
 import Web3 from 'web3';
 import IPFS from 'ipfs';
 import ethTx from 'ethereumjs-tx';
-import writeFileP  from 'write-file-p';
+import PopupClass from 'js-popup'; 
+import JSAlert from "js-alert" ;
 
 
 import ipfsAPI  from 'ipfs-api';
@@ -19,7 +20,7 @@ class UploadControl extends Component{
 super(props);
 this.reader= new FileReader(); 
 this.web3 =  new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/v3/afbac1a223484d84a7784a133d1f2010"));
-this.state = {btnActive : false}
+this.state = {btnActive : false , url : true}
     }
      
       // this function will convert file to byts then will hanndle the onloadendevent and change state
@@ -251,31 +252,49 @@ if(!err)
     if(!err)
     
     {
-
-        const email = new Email({
-            message: {
-              from: 'gharablipro19933@gmail.com'
-            },
-            // uncomment below to send emails in development/test env:
-            // send: true
-            transport: {
-              jsonTransport: true
-            }
-          });
+        JSAlert.alert("uploaded succsesfull");
+        app.setState({url:false});
+        app.setState({hash_id:_hash});
+        // const email = new Email({
+        //     message: {
+        //       from: 'gharablipro19933@gmail.com'
+        //     },
+        //     // uncomment below to send emails in development/test env:
+        //     // send: true
+        //     transport: {
+        //       jsonTransport: true
+        //     }
+        //   });
           
-          email
-            .send({
-              template: 'mars',
-              message: {
-                to: 'gharablipro2017@hotmail.com'
-              },
-              locals: {
-                name: 'Elon'
-              }
-            })
-            .then(console.log)
-            .catch(console.error);
+        //   email
+        //     .send({
+        //       template: 'mars',
+        //       message: {
+        //         to: 'gharablipro2017@hotmail.com'
+        //       },
+        //       locals: {
+        //         name: 'Elon'
+        //       }
+        //     })
+        //     .then(console.log)
+        //     .catch(console.error);
  
+        // let popup = new PopupClass({width: 200, maxHeight: 100}, false, false);
+        // let messageText = "uploaded succsesfull";
+        // let messageName = "";
+        // popup.show(messageText, messageName);
+      
+        
+        
+        
+        
+      
+      
+
+        
+
+    
+
     }
       
 
@@ -328,6 +347,8 @@ render = ()=>{
                         <p className="customP">
                             <input type="button" disabled={!this.state.btnActive} onClick={this.uploadFile}  value="Upload Files" className="btn btn-lg btn-primary"  />
                         </p>
+                        {/* <input type="text" value={this.state.hash_id} disabled={true} id="hash_id"/> */}
+                        <p hidden = {this.state.url}>Copy your URl http://ipfs.io/ipfs/{this.state.hash_id}</p>
                     </form>
                 </div>
                 <div className="col-md-4"></div>    
