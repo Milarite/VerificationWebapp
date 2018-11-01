@@ -47,6 +47,7 @@ this.state = {btnActive : false , url : true}
             }
 
             console.log(result);
+            
            this.SaveToBlockChain (result[0].hash);
         });
 
@@ -65,7 +66,7 @@ this.state = {btnActive : false , url : true}
                 data : data,
                 nonce : nonce,
                 gasPrice :currentWeb3.toHex(currentWeb3.toWei('20', 'gwei')),
-                to : '0xefbd0f9fb54c229fc7644781bb5478384d40f824',
+                to : '0x4041686fae56ee0452b8a55cf1b25abe61bbef18',
                 value : 0,
                 gasLimit: 1000000
                 
@@ -90,6 +91,46 @@ return rawTx ;
                 "inputs": [
                     {
                         "name": "_hash",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_firstName",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_lastName",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_age",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_sex",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_gpa",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_major",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_universityName",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_nationalID",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_dateOfBirth",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_placeOfBirth",
                         "type": "string"
                     }
                 ],
@@ -154,6 +195,82 @@ return rawTx ;
                 "constant": true,
                 "inputs": [
                     {
+                        "name": "_hash",
+                        "type": "string"
+                    }
+                ],
+                "name": "getAge",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_hash",
+                        "type": "string"
+                    }
+                ],
+                "name": "getDateOfBirth",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_hash",
+                        "type": "string"
+                    }
+                ],
+                "name": "getFirstName",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_hash",
+                        "type": "string"
+                    }
+                ],
+                "name": "getGPA",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
                         "name": "index",
                         "type": "uint256"
                     }
@@ -191,7 +308,121 @@ return rawTx ;
                         "type": "string"
                     }
                 ],
+                "name": "getLastName",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_hash",
+                        "type": "string"
+                    }
+                ],
+                "name": "getMajor",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_hash",
+                        "type": "string"
+                    }
+                ],
+                "name": "getNationalID",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_hash",
+                        "type": "string"
+                    }
+                ],
+                "name": "getPlaceOfBirth",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_hash",
+                        "type": "string"
+                    }
+                ],
+                "name": "getSex",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_hash",
+                        "type": "string"
+                    }
+                ],
                 "name": "getTransactions",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_hash",
+                        "type": "string"
+                    }
+                ],
+                "name": "getUniversityName",
                 "outputs": [
                     {
                         "name": "",
@@ -220,12 +451,10 @@ return rawTx ;
      const contract =  this.web3.eth.contract(abi);
 const privateKey = "EEFD9B722FDB3186875E521C87745DC102ABE04A944BCC485DAB385D2949842F";
 const publicKey ="0xaD3843ed864169D4e840651A49bD794F12095162";
-        const smartInstance = contract.at("0xefbd0f9fb54c229fc7644781bb5478384d40f824");
-console.log("web3",this.web3);
-
-
-//////// add raw transaction 
-let data =  smartInstance.addHash.getData(String(_hash));
+const smartInstance = contract.at("0x4041686fae56ee0452b8a55cf1b25abe61bbef18");
+//////// add raw transaction
+console.log(_hash); 
+let data =  smartInstance.addHash.getData(String(_hash),"yaqeen","mohammad","22","female","99.9","SE","PSUT","123","30/06/1993","Amman");
 let app = this;
 app.web3.eth.getTransactionCount(publicKey,function(err,nonce){
 let raw=app.prepairTransaction(privateKey,data,nonce);
@@ -234,10 +463,7 @@ app.web3.eth.sendRawTransaction(raw, function (err, transactionHash) {
 if(err)
 console.log("err1",err);
 if(!err)
-
 {
-    
-    
 ///////// wait for transaction for be mined 
   
         
@@ -348,7 +574,7 @@ render = ()=>{
                             <input type="button" disabled={!this.state.btnActive} onClick={this.uploadFile}  value="Upload Files" className="btn btn-lg btn-primary"  />
                         </p>
                         {/* <input type="text" value={this.state.hash_id} disabled={true} id="hash_id"/> */}
-                        <p hidden = {this.state.url}>Copy your URl http://ipfs.io/ipfs/{this.state.hash_id}</p>
+                        <p hidden = {this.state.url}>Copy your Hash {this.state.hash_id}</p>
                     </form>
                 </div>
                 <div className="col-md-4"></div>    
