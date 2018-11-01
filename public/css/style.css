@@ -11,3 +11,7 @@ background-image:url("/public/img/wallpaper.jpg");
 .center{
 	margin: 200px auto auto auto;
 }
+
+.search-box{
+	margin-top: 150px !important;
+}

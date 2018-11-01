@@ -9,7 +9,7 @@ import JSAlert from "js-alert" ;
 import ipfsAPI  from 'ipfs-api';
 import bufferFrom  from 'buffer-from';
 import { write } from 'fs';
-import Email   from 'email-templates'
+
 
 class UploadControl extends Component{
      web3 =  null;

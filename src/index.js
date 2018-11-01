@@ -2,17 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Header from './components/header';
 import UploadControl from './components/UploadControl';
+import Main from './components/main';
+import {BrowserRouter, Route} from 'react-router-dom';
+import Explore from './components/explore';
 
-const Main = () =>{
+const Index = () =>{
     return  (
-<div>
-    <Header/>
-    <UploadControl/>
-    </div>
+        <BrowserRouter>
+            <div>
+<Route exact path="/" component = {Main}/>
+<Route path = "/explore" component = {Explore}/>
+            </div>
+        </BrowserRouter>
+
 
     )
 }
-ReactDOM.render(<Main/>, document.getElementById('root'));
+ReactDOM.render(<Index/>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
