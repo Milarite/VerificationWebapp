@@ -15,3 +15,20 @@ background-image:url("/public/img/wallpaper.jpg");
 .search-box{
 	margin-top: 150px !important;
 }
+
+.info{
+	margin-top: 50px;
+}
+.tx{
+text-align: center;
+}
+.custom-table{
+	text-align: center;
+
+}
+.custom-table thead {
+	text-align: center;
+}
+.nav-item {
+	margin-left:  20px !important;
+}

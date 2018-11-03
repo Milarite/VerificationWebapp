@@ -3,17 +3,44 @@ import ReactDOM from 'react-dom';
 import Header from './components/header';
 import UploadControl from './components/UploadControl';
 import Main from './components/main';
-import {BrowserRouter, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route , Link} from 'react-router-dom';
 import Explore from './components/explore';
+
+
+
 
 const Index = () =>{
     return  (
-        <BrowserRouter>
+        <div>
+            
+        <Router>
+          
             <div>
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <a className="navbar-brand" href="#">Verification App</a>
+       
+      
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+       
+          <ul className="navbar-nav mr-auto">
+        
+            <li className="nav-item active">
+              <Link to="/">Home</Link>
+            </li>
+            <li className="nav-item">
+              <Link to ="/explore">Explore</Link>
+            </li>
+           
+          
+          </ul>
+     
+        </div>
+      </nav>
 <Route exact path="/" component = {Main}/>
 <Route path = "/explore" component = {Explore}/>
             </div>
-        </BrowserRouter>
+        </Router>
+        </div>
 
 
     )
