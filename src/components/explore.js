@@ -1,6 +1,7 @@
 import React , {Component} from 'react'
 import Web3 from 'web3';
 import ethTx from 'ethereumjs-tx';
+import Loadable from 'react-loading-overlay';
 
 class Explore extends Component {
     web3 =  null;
@@ -21,9 +22,13 @@ class Explore extends Component {
 
     setHash = (y) =>{
         this.setState({hash:y.target.value});
-        console.log(this.state.hash);
+        
     }
     searchForHash= (_hash)=>{
+        
+       
+        
+        
         let abi=[
             {
                 "constant": false,
@@ -387,6 +392,7 @@ class Explore extends Component {
                 "type": "function"
             }
         ]
+        
      const contract =  this.web3.eth.contract(abi);
 const privateKey = "EEFD9B722FDB3186875E521C87745DC102ABE04A944BCC485DAB385D2949842F";
 const publicKey ="0xaD3843ed864169D4e840651A49bD794F12095162";
@@ -400,33 +406,37 @@ let _nationalID=smartInstance.getNationalID.call(this.state.hash);
 let _universityName=smartInstance.getFirstName.call(this.state.hash);
 let _major=smartInstance.getMajor.call(this.state.hash);
 let _gpa =smartInstance.getGPA.call(this.state.hash);
+let _age = smartInstance.getAge.call(this.state.hash);
 let _sex=smartInstance.getSex.call(this.state.hash);
 let _firstName=smartInstance.getFirstName.call(this.state.hash);
 let _lastName=smartInstance.getLastName.call(this.state.hash);
 let _name=_firstName +" "+_lastName;
-this.setState({
-    txHash : txHash,
-_dateOfBirth:_dateOfBirth,
-_placeOfBirth:_placeOfBirth,
-_nationalID:_nationalID,
-_universityName:_universityName,
-_major:_major,
-_gpa:_gpa,
-_sex:_sex,
-_name:_name,
-showInfo :true 
 
-
-
-})
 
 
 
 
 if(txHash){
-   
+    this.setState({
+        txHash : txHash,
+    _dateOfBirth:_dateOfBirth,
+    _placeOfBirth:_placeOfBirth,
+    _nationalID:_nationalID,
+    _universityName:_universityName,
+    _major:_major,
+    _gpa:_gpa,
+    _age:_age,
+    _sex:_sex,
+    _name:_name,
+    showInfo :true 
+    
+    
+    
+    })
+    
    this.setState({hash:txHash, show:true});
-   this.setState({})
+ 
+   
     
 }
 
@@ -434,6 +444,11 @@ if(txHash){
 
     render(){
         return (<div>
+            <Loadable
+             active ={this.state.IsActive}
+             spinner
+       text='Loading your content...'
+       >
             <div className="container">
     <br/>
 	<div className="row justify-content-center search-box">
@@ -449,22 +464,57 @@ if(txHash){
                                         <button onClick={this.searchForHash} className="btn btn-lg btn-success" type="submit">Search</button>
                                     </div>
                                 </div>
-                                <a hidden={!this.state.show} href={`https://rinkeby.etherscan.io/tx/${this.state.txHash}`}>{this.state.hash}</a>
+                                <div class='tx'>
+                                <a hidden={!this.state.show}  href={`https://rinkeby.etherscan.io/tx/${this.state.txHash}`}>Transaction Information</a>
+                                </div>
                         
-                                <div  hidden={!this.state.showInfo}>
-                      <p>Name : {this.state._name}</p>
+                                <div className="info"  hidden={!this.state.showInfo}>
+                                <table className="table table-dark custom-table">
+                                <thead>
+                                   <th></th>
+                                </thead>
+                                    <tr>
+                      <td><p> Name </p></td>
+                      <td><p>{this.state._name}</p></td>
+                      </tr>
                       
-                      <p>Age : {this.state._age}</p>
-                      <p>Sex : {this.state._sex}</p>
-                      <p>GPA : {this.state._gpa}</p>
-                      <p>Major :{this.state._major}</p>
-                      <p>University Name; :{this.state._universityName}</p>
-                      <p>National ID :{this.state._nationalID}</p>
-                      <p>Date Of Birth :{this.state._dateOfBirth}</p>
-                      <p>Place Of Birth :{this.state._placeOfBirth}</p>
+                      <tr>
+                      <td> <p>Age </p></td>
+                      <td> <p>{this.state._age}</p></td>
+                      </tr>
+                      <tr>
+                      <td><p>Sex </p></td>
+                      <td><p>{this.state._sex}</p> </td>
+                      </tr>
+                      <tr>
+                      <td><p>GPA </p></td>
+                      <td><p>{this.state._gpa}</p></td>
+                      </tr>
+                      <tr>
+                      <td><p>Major</p></td>
+                      <td><p>{this.state._major}</p></td>
+                      </tr>
+                      <tr>
+                      <td><p>University Name</p></td>
+                      <td><p>{this.state._universityName}</p></td>
+</tr>
+<tr>
+    
+                      <td><p>National ID</p></td>
+                      <td><p>{this.state._nationalID}</p></td>
+    </tr>
+    <tr>
 
+    
+                      <td><p>Date Of Birth</p></td>
+                      <td><p>{this.state._dateOfBirth}</p></td>
+                      </tr>
+                      <tr>
+                      <td><p>Place Of Birth</p></td>
+                      <td><p>{this.state._placeOfBirth}</p></td>
+</tr>
                       
-                          
+                      </table>
                       
                       </div>
                         
@@ -472,6 +522,7 @@ if(txHash){
                         </div>
                       
 </div>
+</Loadable>
         </div>)
     }
 }
