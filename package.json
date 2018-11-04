@@ -7,6 +7,7 @@
     "ipfs": "^0.32.3",
     "js-alert": "^1.0.4",
     "js-popup": "^1.0.4",
+    "qrcode.react": "^0.8.0",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-loading-overlay": "^0.3.0",

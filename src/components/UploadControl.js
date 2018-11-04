@@ -4,6 +4,8 @@ import IPFS from 'ipfs';
 import ethTx from 'ethereumjs-tx';
 import PopupClass from 'js-popup'; 
 import JSAlert from "js-alert" ;
+import QRCode from "qrcode.react";
+
 
 
 import ipfsAPI  from 'ipfs-api';
@@ -563,6 +565,7 @@ render = ()=>{
 
     return (
         <div >
+            
         <Loadable
         active ={this.state.IsActive}
         spinner
@@ -577,7 +580,10 @@ render = ()=>{
                             <input type="button" disabled={!this.state.btnActive} onClick={this.uploadFile}  value="Upload Files" className="btn btn-lg btn-primary"  />
                         </p>
                         {/* <input type="text" value={this.state.hash_id} disabled={true} id="hash_id"/> */}
-                        <p hidden = {this.state.url}>Copy your URl http://ipfs.io/ipfs/{this.state.hash_id}</p>
+                        <p hidden = {this.state.url}>Copy your URl {this.state.hash_id}</p>
+                        <div hidden = {this.state.url}>
+            <QRCode  value={String(this.state.hash_id)} />
+            </div>
                     </form>
                 </div>
                 <div className="col-md-4"></div>    
@@ -591,11 +597,4 @@ render = ()=>{
 export default UploadControl;
 
 
-//     const promise= new Promise((resolve,reject)=>{
-//         if(true){
-//             resolve('resolved');
-//         }
-//         reject('broke');
-//     }
-//     )
-// promise.then(result=>console.log(result));
+
