@@ -581,8 +581,12 @@ render = ()=>{
                         </p>
                         {/* <input type="text" value={this.state.hash_id} disabled={true} id="hash_id"/> */}
                         <p hidden = {this.state.url}>Copy your URl {this.state.hash_id}</p>
+                        <div className="col-md-4" >
+                        
                         <div hidden = {this.state.url}>
+                  <h5>QR Code</h5>
             <QRCode  value={String(this.state.hash_id)} />
+            </div>
             </div>
                     </form>
                 </div>
