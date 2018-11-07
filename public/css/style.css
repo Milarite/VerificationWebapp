@@ -1,3 +1,12 @@
+body{
+	background-color:#e6eaee !important;
+	overflow-x: hidden !important;
+}
+hr {
+	margin-top: 20px;
+	color:black;
+	background-color:black;
+}
 .customP{
 	text-align: right; margin-top: 20px;
 }
@@ -8,8 +17,18 @@ background-image:url("/public/img/wallpaper.jpg");
 
 }
 
+.navbar-light .navbar-brand{
+	color:white !important;
+}
 .center{
-	margin: 200px auto auto auto;
+	margin-top: 100px;
+}
+.background {
+	margin-top:10px;
+	text-align: center !important;
+}
+.img-center{
+	text-align: center;
 }
 
 .search-box{
@@ -31,4 +50,45 @@ text-align: center;
 }
 .nav-item {
 	margin-left:  20px !important;
+}
+.upload-result{
+	color:black !important;
+}
+
+#files{
+	color:black !important;
+}
+.bg-light{
+	background-color:black !important;
+
+}
+.nav-item a{
+	color : white !important;
+}
+
+.footer{
+	position: absolute;
+	bottom: 0px;
+margin-bottom: 10px !important;
+	width:100%;
+	
+}
+.btn-primary{
+	background-color:black !important;
+}
+
+
+.link{
+	color:black !important;
+}
+.QR{
+	width:50px;
+	height :50px;
+}
+.block{
+	width:100% !important;
+	height:300px !important;
+}
+.loading{
+	color:black !important;
 }
