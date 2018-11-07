@@ -584,7 +584,7 @@ render = ()=>{
                         <div className="col-md-4" >
                         
                         <div hidden = {this.state.url}>
-                  <h5>QR Code</h5>
+                  <h5> Scan Your QR Code</h5>
             <QRCode  value={String(this.state.hash_id)} />
             </div>
             </div>
