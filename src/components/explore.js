@@ -23,11 +23,12 @@ class Explore extends Component {
     setHash = (y) =>{
         this.setState({hash:y.target.value});
         
+        
     }
     searchForHash= (_hash)=>{
         
        
-        
+       
         
         let abi=[
             {
@@ -76,6 +77,10 @@ class Explore extends Component {
                     {
                         "name": "_placeOfBirth",
                         "type": "string"
+                    },
+                    {
+                        "name": "uploader",
+                        "type": "string"
                     }
                 ],
                 "name": "addHash",
@@ -117,6 +122,24 @@ class Explore extends Component {
                 "type": "function"
             },
             {
+                "constant": false,
+                "inputs": [
+                    {
+                        "name": "_username",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_password",
+                        "type": "string"
+                    }
+                ],
+                "name": "signupUploader",
+                "outputs": [],
+                "payable": false,
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
                 "constant": true,
                 "inputs": [
                     {
@@ -125,6 +148,25 @@ class Explore extends Component {
                     }
                 ],
                 "name": "checkHashExsist",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "bool"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_username",
+                        "type": "string"
+                    }
+                ],
+                "name": "checkSignedupBefore",
                 "outputs": [
                     {
                         "name": "",
@@ -390,13 +432,55 @@ class Explore extends Component {
                 "payable": false,
                 "stateMutability": "view",
                 "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_address",
+                        "type": "address"
+                    }
+                ],
+                "name": "signinAdmin",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "bool"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_username",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_password",
+                        "type": "string"
+                    }
+                ],
+                "name": "signinUploader",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "bool"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
             }
         ]
         
      const contract =  this.web3.eth.contract(abi);
 const privateKey = "EEFD9B722FDB3186875E521C87745DC102ABE04A944BCC485DAB385D2949842F";
 const publicKey ="0xaD3843ed864169D4e840651A49bD794F12095162";
-        const smartInstance = contract.at("0xc520536515fd31aafe224f1da20da588495a74c6");
+        const smartInstance = contract.at("0xd17126871f359267c5236f9efd0361bd779a2135");
 
 //let data = smartInstance.getTransactions.getData(_hash);
 let txHash = smartInstance.getTransactions.call(this.state.hash);

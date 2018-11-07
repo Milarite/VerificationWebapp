@@ -1,24 +1,38 @@
-import React from 'react';
+import React , {Component} from 'react';
 import ReactDOM from 'react-dom';
 import Header from './components/header';
 import UploadControl from './components/UploadControl';
 import Main from './components/main';
 import {BrowserRouter as Router, Route , Link} from 'react-router-dom';
 import Explore from './components/explore';
+<<<<<<< HEAD
 import SignUp  from './components/Registration';
 import Login from './components/Login';
+=======
+import Loadable from 'react-loading-overlay';
+
+>>>>>>> 8838df556e071a033a499a13411404c286022879
 
 
 
-const Index = () =>{
+class Index extends Component{
+  
+constructor(props){
+  super(props);
+  this.state = {IsActive : false};
+}
+
+
+
+  render(){
     return  (
         <div>
-            
+        
         <Router>
           
             <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className="navbar-brand" href="#">Verification App</a>
+        <a className="navbar-brand" href="#">Verified Certificate</a>
        
       
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -47,10 +61,13 @@ const Index = () =>{
 <Route path="/Login" component={Login}/>
             </div>
         </Router>
+      
+
         </div>
 
 
     )
+  }
 }
 ReactDOM.render(<Index/>, document.getElementById('root'));
 
