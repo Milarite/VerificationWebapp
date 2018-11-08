@@ -5,8 +5,9 @@ import UploadControl from './components/UploadControl';
 import Main from './components/main';
 import {BrowserRouter as Router, Route , Link} from 'react-router-dom';
 import Explore from './components/explore';
-import Loadable from 'react-loading-overlay';
-
+import SignUp  from './components/Registration';
+import Login from './components/Login';
+import AdminLogin from './components/AdminLogin';
 
 
 
@@ -40,14 +41,21 @@ constructor(props){
             <li className="nav-item">
               <Link to ="/explore">Explore</Link>
             </li>
-           
-          
+           <li className="nav-item">
+           <Link to ="/SignUp">SignUp </Link>
+           </li>
+           <li className="nav-item">
+           <Link to ="/Login">Login </Link>
+           </li>
           </ul>
      
         </div>
       </nav>
 <Route exact path="/" component = {Main}/>
 <Route path = "/explore" component = {Explore}/>
+<Route path ="/SignUp" component={SignUp}/>
+<Route path="/Login" component={Login}/>
+<Route path="/adminLogin" component={AdminLogin}/>
             </div>
         </Router>
       

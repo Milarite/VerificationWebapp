@@ -51,6 +51,9 @@ text-align: center;
 .nav-item {
 	margin-left:  20px !important;
 }
+.margin-top {
+	margin-top:  20px;
+}
 .upload-result{
 	color:black !important;
 }

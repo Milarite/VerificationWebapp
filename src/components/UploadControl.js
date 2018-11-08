@@ -27,7 +27,7 @@ super(props);
 this.reader= new FileReader(); 
 this.web3 =  new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/v3/afbac1a223484d84a7784a133d1f2010"));
 this.state = {btnActive : false , url : true }
-
+console.log(Ethereum);
     }
      
       // this function will convert file to byts then will hanndle the onloadendevent and change state
