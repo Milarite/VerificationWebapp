@@ -11,11 +11,13 @@ import QRCode from "qrcode.react";
 import ipfsAPI  from 'ipfs-api';
 import bufferFrom  from 'buffer-from';
 import { write } from 'fs';
+import Ethereum from "ethers-wallet";
 
 
 
 class UploadControl extends Component{
      web3 =  null;
+
      
      
 
@@ -25,7 +27,11 @@ super(props);
 this.reader= new FileReader(); 
 this.web3 =  new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/v3/afbac1a223484d84a7784a133d1f2010"));
 this.state = {btnActive : false , url : true }
+<<<<<<< HEAD
 console.log(this.web3.eth.account);
+=======
+
+>>>>>>> f1a06ebafe0c44003f108e2043aa3175cd6b100d
     }
      
       // this function will convert file to byts then will hanndle the onloadendevent and change state
@@ -82,7 +88,7 @@ console.log(this.web3.eth.account);
                 data : data,
                 nonce : nonce,
                 gasPrice :currentWeb3.toHex(currentWeb3.toWei('20', 'gwei')),
-                to : '0xd17126871f359267c5236f9efd0361bd779a2135',
+                to : '0xd107ad248e9d268b7f65870d988b616fb2bacc8a',
                 value : 0,
                 gasLimit: 1000000
                 
@@ -164,6 +170,24 @@ return rawTx ;
                 "constant": false,
                 "inputs": [
                     {
+                        "name": "_username",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_password",
+                        "type": "string"
+                    }
+                ],
+                "name": "addOwner",
+                "outputs": [],
+                "payable": false,
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "constant": false,
+                "inputs": [
+                    {
                         "name": "_hash",
                         "type": "string"
                     },
@@ -187,24 +211,6 @@ return rawTx ;
                     }
                 ],
                 "name": "setUrl",
-                "outputs": [],
-                "payable": false,
-                "stateMutability": "nonpayable",
-                "type": "function"
-            },
-            {
-                "constant": false,
-                "inputs": [
-                    {
-                        "name": "_username",
-                        "type": "string"
-                    },
-                    {
-                        "name": "_password",
-                        "type": "string"
-                    }
-                ],
-                "name": "signupUploader",
                 "outputs": [],
                 "payable": false,
                 "stateMutability": "nonpayable",
@@ -237,11 +243,15 @@ return rawTx ;
                         "type": "string"
                     }
                 ],
-                "name": "checkSignedupBefore",
+                "name": "checkSignedBefore",
                 "outputs": [
                     {
                         "name": "",
-                        "type": "bool"
+                        "type": "string"
+                    },
+                    {
+                        "name": "",
+                        "type": "string"
                     }
                 ],
                 "payable": false,
@@ -503,54 +513,12 @@ return rawTx ;
                 "payable": false,
                 "stateMutability": "view",
                 "type": "function"
-            },
-            {
-                "constant": true,
-                "inputs": [
-                    {
-                        "name": "_address",
-                        "type": "address"
-                    }
-                ],
-                "name": "signinAdmin",
-                "outputs": [
-                    {
-                        "name": "",
-                        "type": "bool"
-                    }
-                ],
-                "payable": false,
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "constant": true,
-                "inputs": [
-                    {
-                        "name": "_username",
-                        "type": "string"
-                    },
-                    {
-                        "name": "_password",
-                        "type": "string"
-                    }
-                ],
-                "name": "signinUploader",
-                "outputs": [
-                    {
-                        "name": "",
-                        "type": "bool"
-                    }
-                ],
-                "payable": false,
-                "stateMutability": "view",
-                "type": "function"
             }
         ]
      const contract =  this.web3.eth.contract(abi);
 const privateKey = "EEFD9B722FDB3186875E521C87745DC102ABE04A944BCC485DAB385D2949842F";
 const publicKey ="0xaD3843ed864169D4e840651A49bD794F12095162";
-        const smartInstance = contract.at("0xd17126871f359267c5236f9efd0361bd779a2135");
+        const smartInstance = contract.at("0xd107ad248e9d268b7f65870d988b616fb2bacc8a");
 
         let h = smartInstance.checkHashExsist.call(_hash);
     } 
@@ -619,6 +587,24 @@ const publicKey ="0xaD3843ed864169D4e840651A49bD794F12095162";
                 "constant": false,
                 "inputs": [
                     {
+                        "name": "_username",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_password",
+                        "type": "string"
+                    }
+                ],
+                "name": "addOwner",
+                "outputs": [],
+                "payable": false,
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "constant": false,
+                "inputs": [
+                    {
                         "name": "_hash",
                         "type": "string"
                     },
@@ -642,24 +628,6 @@ const publicKey ="0xaD3843ed864169D4e840651A49bD794F12095162";
                     }
                 ],
                 "name": "setUrl",
-                "outputs": [],
-                "payable": false,
-                "stateMutability": "nonpayable",
-                "type": "function"
-            },
-            {
-                "constant": false,
-                "inputs": [
-                    {
-                        "name": "_username",
-                        "type": "string"
-                    },
-                    {
-                        "name": "_password",
-                        "type": "string"
-                    }
-                ],
-                "name": "signupUploader",
                 "outputs": [],
                 "payable": false,
                 "stateMutability": "nonpayable",
@@ -692,11 +660,15 @@ const publicKey ="0xaD3843ed864169D4e840651A49bD794F12095162";
                         "type": "string"
                     }
                 ],
-                "name": "checkSignedupBefore",
+                "name": "checkSignedBefore",
                 "outputs": [
                     {
                         "name": "",
-                        "type": "bool"
+                        "type": "string"
+                    },
+                    {
+                        "name": "",
+                        "type": "string"
                     }
                 ],
                 "payable": false,
@@ -958,54 +930,12 @@ const publicKey ="0xaD3843ed864169D4e840651A49bD794F12095162";
                 "payable": false,
                 "stateMutability": "view",
                 "type": "function"
-            },
-            {
-                "constant": true,
-                "inputs": [
-                    {
-                        "name": "_address",
-                        "type": "address"
-                    }
-                ],
-                "name": "signinAdmin",
-                "outputs": [
-                    {
-                        "name": "",
-                        "type": "bool"
-                    }
-                ],
-                "payable": false,
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "constant": true,
-                "inputs": [
-                    {
-                        "name": "_username",
-                        "type": "string"
-                    },
-                    {
-                        "name": "_password",
-                        "type": "string"
-                    }
-                ],
-                "name": "signinUploader",
-                "outputs": [
-                    {
-                        "name": "",
-                        "type": "bool"
-                    }
-                ],
-                "payable": false,
-                "stateMutability": "view",
-                "type": "function"
             }
         ]
      const contract =  this.web3.eth.contract(abi);
 const privateKey = "EEFD9B722FDB3186875E521C87745DC102ABE04A944BCC485DAB385D2949842F";
 const publicKey ="0xaD3843ed864169D4e840651A49bD794F12095162";
-        const smartInstance = contract.at("0xd17126871f359267c5236f9efd0361bd779a2135");
+        const smartInstance = contract.at("0xd107ad248e9d268b7f65870d988b616fb2bacc8a");
 
 
 //////// add raw transaction 
