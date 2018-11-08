@@ -51,10 +51,9 @@ text-align: center;
 .nav-item {
 	margin-left:  20px !important;
 }
-<<<<<<< HEAD
 .margin-top {
-	margin-top:  20px
-=======
+	margin-top:  20px;
+}
 .upload-result{
 	color:black !important;
 }
@@ -95,5 +94,4 @@ margin-bottom: 10px !important;
 }
 .loading{
 	color:black !important;
->>>>>>> 8838df556e071a033a499a13411404c286022879
 }

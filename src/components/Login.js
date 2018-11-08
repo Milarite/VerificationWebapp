@@ -11,7 +11,9 @@ class Login extends Component {
             <form>
                 <div className="row">
                 <div className="col">
+               
                 <input type="email"  placeholder="Email" className="form-control margin-top"/>
+               
                 <input type="password" placeholder="Password" className="form-control margin-top"/>
     <input type="submit" className="btn margin-top"/>
                 </div>

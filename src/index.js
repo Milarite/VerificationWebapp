@@ -5,13 +5,9 @@ import UploadControl from './components/UploadControl';
 import Main from './components/main';
 import {BrowserRouter as Router, Route , Link} from 'react-router-dom';
 import Explore from './components/explore';
-<<<<<<< HEAD
 import SignUp  from './components/Registration';
 import Login from './components/Login';
-=======
-import Loadable from 'react-loading-overlay';
-
->>>>>>> 8838df556e071a033a499a13411404c286022879
+import AdminLogin from './components/AdminLogin';
 
 
 
@@ -59,6 +55,7 @@ constructor(props){
 <Route path = "/explore" component = {Explore}/>
 <Route path ="/SignUp" component={SignUp}/>
 <Route path="/Login" component={Login}/>
+<Route path="/adminLogin" component={AdminLogin}/>
             </div>
         </Router>
       

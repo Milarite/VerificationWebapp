@@ -1,6 +1,4 @@
 import React , {Component} from 'react';
-import firebase from 'firebase/app';
-import { FirebaseConfig } from "../config/keys";
 
 class SignUp extends Component{
     constructor(props){
