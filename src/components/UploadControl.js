@@ -11,7 +11,7 @@ import QRCode from "qrcode.react";
 import ipfsAPI  from 'ipfs-api';
 import bufferFrom  from 'buffer-from';
 import { write } from 'fs';
-import Ethereum from "ethers-wallet";
+import { NPN_ENABLED } from 'constants';
 
 
 
