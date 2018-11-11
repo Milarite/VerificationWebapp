@@ -1,6 +1,5 @@
 import React , {Component} from 'react';
 import Web3 from 'web3';
-import IPFS from 'ipfs';
 import ethTx from 'ethereumjs-tx';
 import PopupClass from 'js-popup'; 
 import JSAlert from "js-alert" ;

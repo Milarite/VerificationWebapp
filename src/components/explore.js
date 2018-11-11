@@ -480,7 +480,7 @@ class Explore extends Component {
      const contract =  this.web3.eth.contract(abi);
 const privateKey = "EEFD9B722FDB3186875E521C87745DC102ABE04A944BCC485DAB385D2949842F";
 const publicKey ="0xaD3843ed864169D4e840651A49bD794F12095162";
-        const smartInstance = contract.at("0xd17126871f359267c5236f9efd0361bd779a2135");
+        const smartInstance = contract.at("0xd107ad248e9d268b7f65870d988b616fb2bacc8a");
 
 //let data = smartInstance.getTransactions.getData(_hash);
 let txHash = smartInstance.getTransactions.call(this.state.hash);
