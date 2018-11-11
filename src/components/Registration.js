@@ -59,7 +59,7 @@ if(!err){
     Config.createWallet(app.state._userName,app.state._password).then(function(result){
 
 ////////save wallet as downoaladable file
-app.setState({_infoWallet:result},function(err,result){
+app.setState({_infoWallet:result},function(err,result2){
 
     app.setState({WalletBtnActive:true});
 
