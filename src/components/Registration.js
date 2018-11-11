@@ -13,12 +13,7 @@ class SignUp extends Component{
     constructor(props){
         super(props);
 this.state={_userName:"",_password:"", isActive:false,
-<<<<<<< HEAD
-showUserNameValidation : true , showPasswordValidation : true ,
-walletpk : ""} ;
-=======
 showUserNameValidation : true , showPasswordValidation : true,_infoWallet:"",WalletBtnActive : false};
->>>>>>> caabd36452ba54e909c38974e92161ef81038815
 
 
 
@@ -68,11 +63,8 @@ app.setState({_infoWallet:result},function(err,result){
 
     app.setState({WalletBtnActive:true});
 
-<<<<<<< HEAD
 app.setState({walletpk:result.privateKey});
-=======
 });
->>>>>>> caabd36452ba54e909c38974e92161ef81038815
 
 ///// end save wallet as downoaladable file
     });
