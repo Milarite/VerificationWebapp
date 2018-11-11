@@ -10,7 +10,8 @@ class SignUp extends Component{
     constructor(props){
         super(props);
 this.state={_userName:"",_password:"", isActive:false,
-showUserNameValidation : true , showPasswordValidation : true} ;
+showUserNameValidation : true , showPasswordValidation : true ,
+walletpk : ""} ;
 
 
 
@@ -57,11 +58,7 @@ if(!err){
 
 ////////save wallet to ipfs
 
-const ipfs = Config.getIpfs();
-let fileBuffered = Buffer.from(JSON.stringify(result));
-ipfs.files.add(fileBuffered,function(err,result){
-console.log(result[0].hash);
-});
+app.setState({walletpk:result.privateKey});
 
 ///// end of save wallet to ipfs
     });
@@ -119,6 +116,17 @@ console.log(result[0].hash);
                </div>
                <input  type="button" onClick={this.SignUp} value="sign up" className="btn margin-top"/> 
             </form>
+            <br/>
+            <br/>
+            <label>Copy Privatekey</label>
+            
+            <div class="row">
+            
+            <div class= "col-md-6">
+           
+            <input type="text" class="form-control" readOnly={true} value={this.state.walletpk} />
+            </div>
+            </div>
             </div>
         )
     }
