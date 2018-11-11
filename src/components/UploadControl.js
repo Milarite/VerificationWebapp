@@ -1,6 +1,5 @@
 import React , {Component} from 'react';
 import Web3 from 'web3';
-import IPFS from 'ipfs';
 import ethTx from 'ethereumjs-tx';
 import JSAlert from "js-alert" ;
 import QRCode from "qrcode.react";

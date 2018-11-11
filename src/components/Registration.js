@@ -1,4 +1,7 @@
 import React , {Component} from 'react';
+import http from 'http';
+import fs from 'fs';
+
 
 
 
@@ -10,8 +13,12 @@ class SignUp extends Component{
     constructor(props){
         super(props);
 this.state={_userName:"",_password:"", isActive:false,
+<<<<<<< HEAD
 showUserNameValidation : true , showPasswordValidation : true ,
 walletpk : ""} ;
+=======
+showUserNameValidation : true , showPasswordValidation : true,_infoWallet:"",WalletBtnActive : false};
+>>>>>>> caabd36452ba54e909c38974e92161ef81038815
 
 
 
@@ -56,11 +63,18 @@ stepOver = true;
 if(!err){
     Config.createWallet(app.state._userName,app.state._password).then(function(result){
 
-////////save wallet to ipfs
+////////save wallet as downoaladable file
+app.setState({_infoWallet:result},function(err,result){
 
+    app.setState({WalletBtnActive:true});
+
+<<<<<<< HEAD
 app.setState({walletpk:result.privateKey});
+=======
+});
+>>>>>>> caabd36452ba54e909c38974e92161ef81038815
 
-///// end of save wallet to ipfs
+///// end save wallet as downoaladable file
     });
     JSAlert.alert("signup successfully");
 
@@ -81,7 +95,14 @@ app.setState({walletpk:result.privateKey});
 
     }
 
-    SaveWalletToIpfs(_wallet) {
+    saveWalletToFile = () => {
+        let _wallet  = JSON.stringify(this.state._infoWallet);
+        var element = document.createElement("a");
+        var file = new Blob([_wallet], {type: 'text/plain'});
+        element.href = URL.createObjectURL(file);
+        element.download = "wallet.txt";
+        element.click();
+
         
     }
     updateuserName=(y)=>{
@@ -115,6 +136,7 @@ app.setState({walletpk:result.privateKey});
                </div>
                </div>
                <input  type="button" onClick={this.SignUp} value="sign up" className="btn margin-top"/> 
+               <input type="button" hidden = {!this.state.WalletBtnActive} onClick={this.saveWalletToFile} value="download Json File" className="btn margin-top"/>
             </form>
             <br/>
             <br/>
@@ -128,6 +150,7 @@ app.setState({walletpk:result.privateKey});
             </div>
             </div>
             </div>
+
         )
     }
 } 
