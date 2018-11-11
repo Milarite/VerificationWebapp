@@ -2,16 +2,16 @@ import React , {Component} from 'react';
 import Web3 from 'web3';
 import IPFS from 'ipfs';
 import ethTx from 'ethereumjs-tx';
-import PopupClass from 'js-popup'; 
 import JSAlert from "js-alert" ;
 import QRCode from "qrcode.react";
+import Config from '../config';
 
 
 
 import ipfsAPI  from 'ipfs-api';
-import bufferFrom  from 'buffer-from';
 import { write } from 'fs';
 import { NPN_ENABLED } from 'constants';
+import { config } from '../config';
 
 
 
@@ -27,7 +27,8 @@ super(props);
 this.reader= new FileReader(); 
 this.web3 =  new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/v3/afbac1a223484d84a7784a133d1f2010"));
 this.state = {btnActive : false , url : true }
-console.log(Ethereum);
+console.log(Config);
+
     }
      
       // this function will convert file to byts then will hanndle the onloadendevent and change state
@@ -48,8 +49,8 @@ console.log(Ethereum);
         
         
          let fileBuffered = Buffer.from(file);
-        let ipfs = ipfsAPI('ipfs.infura.io', '5001', {protocol: 'https'})
-        ipfs.files.add(fileBuffered, (err, result) => { // Upload buffer to IPFS
+         let ipfs = ipfsAPI('ipfs.infura.io', '5001', {protocol: 'https'})
+         ipfs.files.add(fileBuffered, (err, result) => { // Upload buffer to IPFS
             if(err) {
               console.error(err)
               return;

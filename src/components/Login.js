@@ -10,7 +10,7 @@ class Login extends Component {
             <div className="container">
             <form>
                 <div className="row">
-                <div className="col">
+                <div className="col-md-4">
                
                 <input type="email"  placeholder="Email" className="form-control margin-top"/>
                
