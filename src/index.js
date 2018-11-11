@@ -35,24 +35,18 @@ constructor(props){
        
           <ul className="navbar-nav mr-auto">
         
-            <li className="nav-item active">
-              <Link to="/">Home</Link>
-            </li>
+         
             <li className="nav-item">
-              <Link to ="/explore">Explore</Link>
+              <Link to ="/">Explore</Link>
             </li>
-           <li className="nav-item">
-           <Link to ="/SignUp">SignUp </Link>
-           </li>
-           <li className="nav-item">
-           <Link to ="/Login">Login </Link>
-           </li>
+       
           </ul>
      
         </div>
       </nav>
-<Route exact path="/" component = {Main}/>
-<Route path = "/explore" component = {Explore}/>
+      <Route exact path = "/" component = {Explore}/>
+<Route  path="/upload" component = {Main}/>
+
 <Route path ="/SignUp" component={SignUp}/>
 <Route path="/Login" component={Login}/>
 <Route path="/adminLogin" component={AdminLogin}/>

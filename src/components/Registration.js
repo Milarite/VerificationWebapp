@@ -128,18 +128,21 @@ app.setState({walletpk:result.privateKey});
                </div>
                </div>
                <input  type="button" onClick={this.SignUp} value="sign up" className="btn margin-top"/> 
-               <input type="button" hidden = {!this.state.WalletBtnActive} onClick={this.saveWalletToFile} value="download Json File" className="btn margin-top"/>
             </form>
             <br/>
             <br/>
+            <div hidden={!(this.state.walletpk != null)}>
             <label>Copy Privatekey</label>
             
             <div class="row">
             
             <div class= "col-md-6">
            
-            <input type="text" class="form-control" readOnly={true} value={this.state.walletpk} />
+            <input type="text" class="form-control" readOnly={true}  value={this.state.walletpk} />
             </div>
+            </div>
+            <input type="button" hidden = {!this.state.WalletBtnActive} onClick={this.saveWalletToFile} value="download key store" className="btn margin-top"/>
+
             </div>
             </div>
 
