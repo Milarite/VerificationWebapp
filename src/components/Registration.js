@@ -7,13 +7,15 @@ import fs from 'fs';
 
 import JSAlert from "js-alert";
 import Config from '../config';
+import config from '../config';
 
 
 class SignUp extends Component{
     constructor(props){
         super(props);
 this.state={_userName:"",_password:"", isActive:false,
-showUserNameValidation : true , showPasswordValidation : true,_infoWallet:"",WalletBtnActive : false};
+showUserNameValidation : true , showPasswordValidation : true,_infoWallet:"",WalletBtnActive : false,
+showUserExistValidation : true , isUserExist : false};
 
 
 
@@ -39,7 +41,7 @@ showUserNameValidation : true , showPasswordValidation : true,_infoWallet:"",Wal
 
         }
 
-        if(this.state._userName && this.state._password){
+        if(this.state._userName && this.state._password && !this.state.isUserExist){
 stepOver = true;
         }
 
@@ -87,6 +89,7 @@ app.setState({walletpk:result.privateKey});
 
     }
 
+
     saveWalletToFile = () => {
         let _wallet  = JSON.stringify(this.state._infoWallet);
         var element = document.createElement("a");
@@ -97,9 +100,25 @@ app.setState({walletpk:result.privateKey});
 
         
     }
+    checkUserName =  (y) =>{
+        const smartInstance = config.init();
+        const currentUser = smartInstance.checkSignedBefore(y.target.value);
+     
+        if(currentUser[0] != ""){
+            this.setState({isUserExist : true,showUserExistValidation:false});
+        }
+        
+    }
     updateuserName=(y)=>{
 
-        this.setState({_userName:y.target.value});
+     
+
+            this.setState({_userName:y.target.value});
+        
+
+        
+
+        
 
 
         
@@ -120,8 +139,9 @@ app.setState({walletpk:result.privateKey});
                <div className="row">
                <div className="col-md-4">
             
-               <input type="text" onChange={this.updateuserName} placeholder="UserName" className= "form-control margin-top"/>
+               <input  type="text" onBlur = {this.checkUserName} onChange={this.updateuserName} placeholder="UserName" className= "form-control margin-top"/>
                <span style= {{color:"red"}} hidden={this.state.showUserNameValidation}>this field is required</span>
+               <span  style= {{color:"red"}} hidden={this.state.showUserExistValidation}>user already exist</span>
                <input type="password" placeholder="Password" onChange={this.updatePassword} className="form-control margin-top"/>
                <span style= {{color:"red"}} hidden={this.state.showPasswordValidation}>this field is required</span>
 
