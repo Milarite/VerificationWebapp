@@ -1064,13 +1064,15 @@ render = ()=>{
                             <input type="button" disabled={!this.state.btnActive} onClick={this.uploadFile}  value="Upload Files" className="btn btn-lg btn-primary btn-custom"  />
                         </p>
                         {/* <input type="text" value={this.state.hash_id} disabled={true} id="hash_id"/> */}
-                        <p className="upload-result" hidden = {this.state.url}>Copy your URl {this.state.hash_id}</p>
+                        <div hidden = {this.state.url} className="qrcontainer">
+                        <p className="upload-result" >Copy your URl {this.state.hash_id}</p>
                        
-                        <div className="col-md-4" >
+                        <div className="col-md-12" >
                         
                         <div className="upload-result" hidden = {this.state.url}>
                   <h5>QR Code</h5>
             <QRCode  className="QR" value={String(this.state.hash_id)} />
+            </div>
             </div>
             </div>
                     </form>

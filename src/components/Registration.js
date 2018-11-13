@@ -107,6 +107,9 @@ app.setState({walletpk:result.privateKey});
         if(currentUser[0] != ""){
             this.setState({isUserExist : true,showUserExistValidation:false});
         }
+        else{
+            this.setState({isUserExist : false,showUserExistValidation:true});
+        }
         
     }
     updateuserName=(y)=>{
@@ -148,7 +151,7 @@ app.setState({walletpk:result.privateKey});
 
                </div>
                </div>
-               <input  type="button" onClick={this.SignUp} value="sign up" className="btn margin-top"/> 
+               <input  type="button" onClick={this.SignUp} value="sign up" className="btn btn-lg btn-primary btn-custom margin-top"/> 
             </form>
             <br/>
             <br/>
@@ -157,12 +160,12 @@ app.setState({walletpk:result.privateKey});
             
             <div class="row">
             
-            <div class= "col-md-6">
+            <div class= "col-md-6 col-custom">
            
             <input type="text" class="form-control" readOnly={true}  value={this.state.walletpk} />
             </div>
             </div>
-            <input type="button" hidden = {!this.state.WalletBtnActive} onClick={this.saveWalletToFile} value="download key store" className="btn margin-top"/>
+            <input type="button" hidden = {!this.state.WalletBtnActive} onClick={this.saveWalletToFile} value="download key store" className="btn btn-lg btn-primary btn-custom margin-top"/>
 
             </div>
             </div>

@@ -92,7 +92,7 @@ if(stepOver){
                 <input type="password" placeholder="Password" className="form-control margin-top" onChange={this.passwordChange}/>
                <span style= {{color:"red"}}  hidden={this.state.showPasswordValidation}>this field is required</span>
                <br/>
-    <input type="button" className="btn margin-top" value="login" onClick={this.Login}/>
+    <input type="button" className="btn btn-lg btn-primary btn-custom margin-top" value="login" onClick={this.Login}/>
                 </div>
     
                 </div>
