@@ -2,9 +2,19 @@ import React , {Component} from 'react'
 import Web3 from 'web3';
 import ethTx from 'ethereumjs-tx';
 import Loadable from 'react-loading-overlay';
+import background from './blockchain-gif.gif';
 
 class Explore extends Component {
     web3 =  null;
+    backGroundStyle = {
+        width:"500px",
+        height:"400px",
+        marginLeft: "-150px",
+        marginRight : "auto",
+        float:"left"
+        
+    
+    }
     constructor(props){
         super(props);
         this.web3 =  new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/v3/afbac1a223484d84a7784a133d1f2010"));
@@ -528,6 +538,7 @@ if(txHash){
 
     render(){
         return (<div>
+            <p className="title">Verfied Certificate</p>
             <Loadable
              active ={this.state.IsActive}
              spinner
@@ -538,9 +549,7 @@ if(txHash){
 	<div className="row justify-content-center search-box">
                         <div className="col-12 col-md-10 col-lg-8">
                                 <div className="card-body row no-gutters align-items-center">
-                                    <div className="col-auto">
-                                        <i className="fas fa-search h4 text-body"></i>
-                                    </div>
+                                 
                                     <div className="col">
                                         <input onChange={this.setHash} className="form-control form-control-lg form-control-borderless" type="search" placeholder="Search topics or keywords"/>
                                     </div>

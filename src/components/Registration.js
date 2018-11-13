@@ -134,16 +134,17 @@ app.setState({walletpk:result.privateKey});
     }
     render(){
         return(
-            <div className="container" >
+            <div className="container reg">
             <form>
                <div className="row">
-               <div className="col-md-4">
-            
+              
+               <div className="col-md-4 reg-input">
+               <p className="title">Verfied Certificate</p>
                <input  type="text" onBlur = {this.checkUserName} onChange={this.updateuserName} placeholder="UserName" className= "form-control margin-top"/>
-               <span style= {{color:"red"}} hidden={this.state.showUserNameValidation}>this field is required</span>
-               <span  style= {{color:"red"}} hidden={this.state.showUserExistValidation}>user already exist</span>
-               <input type="password" placeholder="Password" onChange={this.updatePassword} className="form-control margin-top"/>
-               <span style= {{color:"red"}} hidden={this.state.showPasswordValidation}>this field is required</span>
+               <span style= {{color:"red"}}  hidden={this.state.showUserNameValidation}>this field is required</span>
+               <span  style= {{color:"red"}}  hidden={this.state.showUserExistValidation}>user already exist</span>
+               <input type="password" placeholder="Password" onChange={this.updatePassword} className="form-control margin-top reg-input"/>
+               <span style= {{color:"red"}}  hidden={this.state.showPasswordValidation}>this field is required</span>
 
                </div>
                </div>

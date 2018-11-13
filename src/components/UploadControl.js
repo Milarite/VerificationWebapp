@@ -4,6 +4,10 @@ import ethTx from 'ethereumjs-tx';
 import JSAlert from "js-alert" ;
 import QRCode from "qrcode.react";
 import Config from '../config';
+import logo from './logo.png';
+import background from './blockchain-gif.gif';
+import blackBackGround from './black-wallpaper.png';
+
 
 
 
@@ -17,7 +21,15 @@ import { config } from '../config';
 class UploadControl extends Component{
      web3 =  null;
 
-     
+      backGroundStyle = {
+        width:"300px",
+        height:"300px",
+        marginLeft: "auto",
+        marginRight : "auto",
+      
+        
+    
+    }
      
 
     reader = null;
@@ -1038,16 +1050,18 @@ if(!err)
 render = ()=>{
 
     return (
-        <div >
+        <div class="custom-div">
             
-     
-                <div className="container">
-                <div className="col-md-4"></div>
-                <div className="col-md-4 center" >
+            <div class="box">
+       <img className="img-background" style={this.backGroundStyle} src={blackBackGround}/>
+       </div>
+                <div className="container custom-con">
+               
+            
                     <form method="post" enctype="multipart/form-data">
                         <input type="file" id="files" name="files" multiple="multiple" onChange ={(e) => this.UploadToIPFS(e.target.files[0])} />
                         <p className="customP">
-                            <input type="button" disabled={!this.state.btnActive} onClick={this.uploadFile}  value="Upload Files" className="btn btn-lg btn-primary"  />
+                            <input type="button" disabled={!this.state.btnActive} onClick={this.uploadFile}  value="Upload Files" className="btn btn-lg btn-primary btn-custom"  />
                         </p>
                         {/* <input type="text" value={this.state.hash_id} disabled={true} id="hash_id"/> */}
                         <p className="upload-result" hidden = {this.state.url}>Copy your URl {this.state.hash_id}</p>
@@ -1060,8 +1074,8 @@ render = ()=>{
             </div>
             </div>
                     </form>
-                </div>
-                <div className="col-md-4"></div>    
+            
+                
             </div>
             
             </div>

@@ -15,7 +15,13 @@ class Index extends Component{
   
 constructor(props){
   super(props);
-  this.state = {IsActive : false};
+  this.state = {IsActive : false , provider : false};
+
+  if(localStorage.getItem("provider"))
+  {
+    this.state= {IsActive : false  , provider : true};
+  }
+  
 }
 
 
@@ -39,13 +45,17 @@ constructor(props){
             <li className="nav-item">
               <Link to ="/">Explore</Link>
             </li>
+
+            <li className="nav-item">
+            <Link hidden={!this.state.provider} to = "/upload">Upload</Link>
+            </li>
        
           </ul>
      
         </div>
       </nav>
       <Route exact path = "/" component = {Explore}/>
-<Route  path="/upload" component = {Main}/>
+<Route   path="/upload" component = {Main}/>
 
 <Route path ="/SignUp" component={SignUp}/>
 <Route path="/Login" component={Login}/>
