@@ -22,9 +22,9 @@ class Explore extends Component {
         _age: "", _sex: "", _gpa :"",_major : "",_universityName :"",_nationalID:"",_dateOfBirth:"",_placeOfBirth:"",
         showInfo:false,txHash:"",
 
-        ar :{ Search :"البحث" , txInformation :"معلومات الحركة" },
+        ar :{ Search :"البحث" , txInformation :"معلومات الحركة", VerfiedCertificate:"الشهادة الموثقة",textSearch:"البحث" },
 
-        en : {Search :"Search" ,txInformation :"Transaction Information"},
+        en : {Search :"Search" ,txInformation :"Transaction Information",VerfiedCertificate:"Verfied certificate",textSearch:"search topic or keywords"},
 
         isArabic : false
 
@@ -548,7 +548,9 @@ if(txHash){
 
     render(){
         return (<div>
-            <p className="title">Verfied Certificate</p>
+            <p className="title">
+            {this.state.isArabic ?    (this.state.ar.VerfiedCertificate) : (this.state.en.VerfiedCertificate)}
+            </p>
             <Loadable
              active ={this.state.IsActive}
              spinner
@@ -561,7 +563,8 @@ if(txHash){
                                 <div className="card-body row no-gutters align-items-center">
                                  
                                     <div className="col">
-                                        <input onChange={this.setHash} className="form-control form-control-lg form-control-borderless" type="search" placeholder="Search topics or keywords"/>
+                                        <input onChange={this.setHash} className="form-control form-control-lg form-control-borderless" type="search" placeholder={this.state.isArabic ?    (this.state.ar.textSearch) : (this.state.en.textSearch)}
+                                 />
                                     </div>
                                     <div className="col-auto">
                                         <button onClick={this.searchForHash} className="btn btn-lg btn-success" type="submit">{ this.state.isArabic ?    (this.state.ar.search) : (this.state.en.search) }</button>
