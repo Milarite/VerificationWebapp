@@ -13,9 +13,13 @@ import config from '../config';
 class SignUp extends Component{
     constructor(props){
         super(props);
+
 this.state={_userName:"",_password:"", isActive:false,
 showUserNameValidation : true , showPasswordValidation : true,_infoWallet:"",WalletBtnActive : false,
 showUserExistValidation : true , isUserExist : false};
+
+
+
 
 
 
@@ -71,6 +75,9 @@ app.setState({walletpk:result.privateKey});
 ///// end save wallet as downoaladable file
     });
     JSAlert.alert("signup successfully");
+    
+
+
 
 }
 

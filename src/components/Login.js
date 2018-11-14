@@ -11,6 +11,8 @@ this.state={
     showPasswordValidation : true,
     showUserExistValidation:true
 }
+
+
     }
 
     userNameChange=(user)=>{
@@ -57,7 +59,7 @@ if(stepOver){
         if(userAccount && this.state.password==userAccount[1]){
             this.setState({showUserExistValidation:true});
             localStorage.setItem("provider",true);
-            window.location.reload();
+            window.location.href="/upload";
 
 
         }
@@ -67,6 +69,8 @@ if(stepOver){
 
     }
 
+
+    
 
 
 

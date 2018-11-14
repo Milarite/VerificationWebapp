@@ -20,13 +20,23 @@ class Explore extends Component {
         this.web3 =  new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/v3/afbac1a223484d84a7784a133d1f2010"));
         this.state = {hash : "",url : "" , show : false,
         _age: "", _sex: "", _gpa :"",_major : "",_universityName :"",_nationalID:"",_dateOfBirth:"",_placeOfBirth:"",
-        showInfo:false,txHash:""
+        showInfo:false,txHash:"",
+
+        ar :{ Search :"البحث" , txInformation :"معلومات الحركة" },
+
+        en : {Search :"Search" ,txInformation :"Transaction Information"},
+
+        isArabic : false
+
+
+        
     
     
     
     
     
     };
+   
     
     }
 
@@ -554,11 +564,11 @@ if(txHash){
                                         <input onChange={this.setHash} className="form-control form-control-lg form-control-borderless" type="search" placeholder="Search topics or keywords"/>
                                     </div>
                                     <div className="col-auto">
-                                        <button onClick={this.searchForHash} className="btn btn-lg btn-success" type="submit">Search</button>
+                                        <button onClick={this.searchForHash} className="btn btn-lg btn-success" type="submit">{ this.state.isArabic ?    (this.state.ar.search) : (this.state.en.search) }</button>
                                     </div>
                                 </div>
                                 <div class='tx'>
-                                <a hidden={!this.state.show}  href={`https://rinkeby.etherscan.io/tx/${this.state.txHash}`}>Transaction Information</a>
+                                <a hidden={!this.state.show} style={{color:"black"}} href={`https://rinkeby.etherscan.io/tx/${this.state.txHash}`}>{ this.state.isArabic ?    (this.state.ar.txInformation) : (this.state.en.txInformation) }</a>
                                 </div>
                         
                                 <div className="info"  hidden={!this.state.showInfo}>

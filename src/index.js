@@ -11,17 +11,32 @@ import AdminLogin from './components/AdminLogin';
 
 
 
+
+
 class Index extends Component{
   
+ 
 constructor(props){
   super(props);
+
   this.state = {IsActive : false , provider : false};
 
   if(localStorage.getItem("provider"))
   {
     this.state= {IsActive : false  , provider : true};
+
   }
   
+}
+
+logout(){
+
+// remove localStorage and redirect
+
+localStorage.removeItem("provider");
+window.location.href="/login";
+
+
 }
 
 
@@ -45,10 +60,18 @@ constructor(props){
             <li className="nav-item">
               <Link to ="/">Explore</Link>
             </li>
+            <li className="nav-item">
+              <Link hidden={this.state.provider} to ="/Login">Login</Link>
+            </li>
 
             <li className="nav-item">
             <Link hidden={!this.state.provider} to = "/upload">Upload</Link>
             </li>
+
+            <li className ="nav-item">
+            <span hidden = {!this.state.provider} onClick={this.logout} style={{color:"white" , cursor:"pointer"}}>Logout</span>
+            </li>
+
        
           </ul>
      
