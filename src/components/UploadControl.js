@@ -1,24 +1,35 @@
 import React , {Component} from 'react';
 import Web3 from 'web3';
-import IPFS from 'ipfs';
 import ethTx from 'ethereumjs-tx';
-import PopupClass from 'js-popup'; 
 import JSAlert from "js-alert" ;
 import QRCode from "qrcode.react";
+import Config from '../config';
+import logo from './logo.png';
+import background from './blockchain-gif.gif';
+import blackBackGround from './black-wallpaper.png';
+
 
 
 
 import ipfsAPI  from 'ipfs-api';
-import bufferFrom  from 'buffer-from';
 import { write } from 'fs';
-import Ethereum from "ethers-wallet";
+import { NPN_ENABLED } from 'constants';
+import { config } from '../config';
 
 
 
 class UploadControl extends Component{
      web3 =  null;
 
-     
+      backGroundStyle = {
+        width:"300px",
+        height:"300px",
+        marginLeft: "auto",
+        marginRight : "auto",
+      
+        
+    
+    }
      
 
     reader = null;
@@ -27,7 +38,8 @@ super(props);
 this.reader= new FileReader(); 
 this.web3 =  new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/v3/afbac1a223484d84a7784a133d1f2010"));
 this.state = {btnActive : false , url : true }
-console.log(Ethereum);
+
+
     }
      
       // this function will convert file to byts then will hanndle the onloadendevent and change state
@@ -48,8 +60,8 @@ console.log(Ethereum);
         
         
          let fileBuffered = Buffer.from(file);
-        let ipfs = ipfsAPI('ipfs.infura.io', '5001', {protocol: 'https'})
-        ipfs.files.add(fileBuffered, (err, result) => { // Upload buffer to IPFS
+         let ipfs = ipfsAPI('ipfs.infura.io', '5001', {protocol: 'https'})
+         ipfs.files.add(fileBuffered, (err, result) => { // Upload buffer to IPFS
             if(err) {
               console.error(err)
               return;
@@ -1038,30 +1050,34 @@ if(!err)
 render = ()=>{
 
     return (
-        <div >
+        <div class="custom-div">
             
-     
-                <div className="container">
-                <div className="col-md-4"></div>
-                <div className="col-md-4 center" >
+            <div class="box">
+       <img className="img-background" style={this.backGroundStyle} src={blackBackGround}/>
+       </div>
+                <div className="container custom-con">
+               
+            
                     <form method="post" enctype="multipart/form-data">
                         <input type="file" id="files" name="files" multiple="multiple" onChange ={(e) => this.UploadToIPFS(e.target.files[0])} />
                         <p className="customP">
-                            <input type="button" disabled={!this.state.btnActive} onClick={this.uploadFile}  value="Upload Files" className="btn btn-lg btn-primary"  />
+                            <input type="button" disabled={!this.state.btnActive} onClick={this.uploadFile}  value="Upload Files" className="btn btn-lg btn-primary btn-custom"  />
                         </p>
                         {/* <input type="text" value={this.state.hash_id} disabled={true} id="hash_id"/> */}
-                        <p className="upload-result" hidden = {this.state.url}>Copy your URl {this.state.hash_id}</p>
+                        <div hidden = {this.state.url} className="qrcontainer">
+                        <p className="upload-result" >Copy your URl {this.state.hash_id}</p>
                        
-                        <div className="col-md-4" >
+                        <div className="col-md-12" >
                         
                         <div className="upload-result" hidden = {this.state.url}>
                   <h5>QR Code</h5>
             <QRCode  className="QR" value={String(this.state.hash_id)} />
             </div>
             </div>
+            </div>
                     </form>
-                </div>
-                <div className="col-md-4"></div>    
+            
+                
             </div>
             
             </div>

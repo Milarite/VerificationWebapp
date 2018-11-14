@@ -1,21 +1,22 @@
 {
-  "name": "apps",
-  "version": "0.1.0",
-  "private": true,
+  "name": "verification-app",
+  "version": "1.0.0",
   "dependencies": {
     "ethereumjs-tx": "^1.3.7",
-    "firebase": "^5.5.7",
-    "ipfs": "^0.32.3",
     "ethers": "^4.0.7",
     "ethers-wallet": "^2.1.8",
+    "firebase": "^5.5.7",
+    "ipfs": "^0.32.3",
+    "ipfs-api": "^26.1.2",
     "js-alert": "^1.0.4",
     "js-popup": "^1.0.4",
     "qrcode.react": "^0.8.0",
-    "react": "^16.6.0",
-    "react-dom": "^16.6.0",
+    "react": "^16.6.1",
+    "react-dom": "^16.6.1",
     "react-loading-overlay": "^0.3.0",
+    "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.0",
+    "react-scripts": "2.1.1",
     "web3": "^0.18.4"
   },
   "scripts": {
@@ -32,8 +33,5 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "devDependencies": {
-    "babel-code-frame": "^6.26.0"
-  }
+  ]
 }

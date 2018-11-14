@@ -21,15 +21,17 @@ class Main extends React.Component{
   text='Loading your content...'
   className="loading"
         >
-    <div className="row">
-    <div className="col-md-2"></div>
-    <div className="col-md-5">
+    
+
+ <div>
     <Header/>
     </div>
-    <div className="col-md-5">
+
+    <div>
+
     <UploadControl onUploadLoadSpiner = {this.loadSpinner}/>
     </div>
-    </div>
+  
     </Loadable>
 </div>
     )

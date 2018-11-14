@@ -1,6 +1,7 @@
 body{
-	background-color:#e6eaee !important;
+	background-color:#9FA8DA !important;
 	overflow-x: hidden !important;
+	
 }
 hr {
 	margin-top: 20px;
@@ -8,7 +9,7 @@ hr {
 	background-color:black;
 }
 .customP{
-	text-align: right; margin-top: 20px;
+ margin-top: 40px;
 }
 .box{
 	width:100%;
@@ -20,9 +21,7 @@ background-image:url("/public/img/wallpaper.jpg");
 .navbar-light .navbar-brand{
 	color:white !important;
 }
-.center{
-	margin-top: 100px;
-}
+
 .background {
 	margin-top:10px;
 	text-align: center !important;
@@ -32,7 +31,7 @@ background-image:url("/public/img/wallpaper.jpg");
 }
 
 .search-box{
-	margin-top: 150px !important;
+	margin-top: 100px !important;
 }
 
 .info{
@@ -59,7 +58,7 @@ text-align: center;
 }
 
 #files{
-	color:black !important;
+	color:white !important;
 }
 .bg-light{
 	background-color:black !important;
@@ -94,4 +93,47 @@ margin-bottom: 10px !important;
 }
 .loading{
 	color:black !important;
+}
+.title{
+	text-align: center;
+	color:white;
+	font-size: 30pt !important;
+}
+
+.title{
+	margin-top: 30px !important;
+	color :white;
+}
+
+.reg{
+	text-align: center !important;
+
+}
+
+.reg-input{
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	
+
+
+	
+}
+
+.custom-div{
+	text-align: center !important;
+}
+
+.custom-con{
+	margin-top:200px;
+}
+
+.btn-custom{
+	background-color:black !important;
+	border : 0px;
+	
+}
+.col-custom{
+	margin-left:auto;
+	margin-right: auto;
 }

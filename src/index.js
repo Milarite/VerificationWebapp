@@ -11,11 +11,32 @@ import AdminLogin from './components/AdminLogin';
 
 
 
+
+
 class Index extends Component{
   
+ 
 constructor(props){
   super(props);
-  this.state = {IsActive : false};
+
+  this.state = {IsActive : false , provider : false};
+
+  if(localStorage.getItem("provider"))
+  {
+    this.state= {IsActive : false  , provider : true};
+
+  }
+  
+}
+
+logout(){
+
+// remove localStorage and redirect
+
+localStorage.removeItem("provider");
+window.location.href="/login";
+
+
 }
 
 
@@ -35,24 +56,30 @@ constructor(props){
        
           <ul className="navbar-nav mr-auto">
         
-            <li className="nav-item active">
-              <Link to="/">Home</Link>
+         
+            <li className="nav-item">
+              <Link to ="/">Explore</Link>
             </li>
             <li className="nav-item">
-              <Link to ="/explore">Explore</Link>
+              <Link hidden={this.state.provider} to ="/Login">Login</Link>
             </li>
-           <li className="nav-item">
-           <Link to ="/SignUp">SignUp </Link>
-           </li>
-           <li className="nav-item">
-           <Link to ="/Login">Login </Link>
-           </li>
+
+            <li className="nav-item">
+            <Link hidden={!this.state.provider} to = "/upload">Upload</Link>
+            </li>
+
+            <li className ="nav-item">
+            <span hidden = {!this.state.provider} onClick={this.logout} style={{color:"white" , cursor:"pointer"}}>Logout</span>
+            </li>
+
+       
           </ul>
      
         </div>
       </nav>
-<Route exact path="/" component = {Main}/>
-<Route path = "/explore" component = {Explore}/>
+      <Route exact path = "/" component = {Explore}/>
+<Route   path="/upload" component = {Main}/>
+
 <Route path ="/SignUp" component={SignUp}/>
 <Route path="/Login" component={Login}/>
 <Route path="/adminLogin" component={AdminLogin}/>

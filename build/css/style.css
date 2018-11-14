@@ -1,5 +1,15 @@
+body{
+	background-color:black !important;
+	overflow-x: hidden !important;
+	
+}
+hr {
+	margin-top: 20px;
+	color:black;
+	background-color:black;
+}
 .customP{
-	text-align: right; margin-top: 20px;
+ margin-top: 40px;
 }
 .box{
 	width:100%;
@@ -8,6 +18,118 @@ background-image:url("/public/img/wallpaper.jpg");
 
 }
 
-.center{
-	margin: 200px auto auto auto;
+.navbar-light .navbar-brand{
+	color:white !important;
+}
+
+.background {
+	margin-top:10px;
+	text-align: center !important;
+}
+.img-center{
+	text-align: center;
+}
+
+.search-box{
+	margin-top: 100px !important;
+}
+
+.info{
+	margin-top: 50px;
+}
+.tx{
+text-align: center;
+}
+.custom-table{
+	text-align: center;
+
+}
+.custom-table thead {
+	text-align: center;
+}
+.nav-item {
+	margin-left:  20px !important;
+}
+.margin-top {
+	margin-top:  20px;
+}
+.upload-result{
+	color:black !important;
+}
+
+#files{
+	color:black !important;
+}
+.bg-light{
+	background-color:#28a745 !important;
+
+}
+.nav-item a{
+	color : white !important;
+}
+
+.footer{
+	position: absolute;
+	bottom: 0px;
+margin-bottom: 10px !important;
+	width:100%;
+	
+}
+.btn-primary{
+	background-color:black !important;
+}
+
+
+.link{
+	color:black !important;
+}
+.QR{
+	width:50px;
+	height :50px;
+}
+.block{
+	width:100% !important;
+	height:300px !important;
+}
+.loading{
+	color:black !important;
+}
+.title{
+	text-align: center;
+	color:white;
+	font-size: 30pt !important;
+}
+
+.title{
+	margin-top: 30px !important;
+	color :white;
+}
+
+.reg{
+	text-align: center !important;
+
+}
+
+.reg-input{
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	
+
+
+	
+}
+
+.custom-div{
+	text-align: center !important;
+}
+
+.custom-con{
+	margin-top:200px;
+}
+
+.btn-custom{
+	background-color:#28a745 !important;
+	border : 0px;
+	
 }
