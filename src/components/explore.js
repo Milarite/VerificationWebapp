@@ -567,7 +567,7 @@ if(txHash){
                                  />
                                     </div>
                                     <div className="col-auto">
-                                        <button onClick={this.searchForHash} className="btn btn-lg btn-success" type="submit">{ this.state.isArabic ?    (this.state.ar.search) : (this.state.en.search) }</button>
+                                        <button onClick={this.searchForHash} className="btn btn-lg btn-success" type="submit">{this.state.Search ?    (this.state.ar.Search) : (this.state.en.Search)}</button>
                                     </div>
                                 </div>
                                 <div class='tx'>

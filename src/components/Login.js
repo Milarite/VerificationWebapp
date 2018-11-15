@@ -9,7 +9,10 @@ this.state={
     password:"",
     showUserNameValidation : true,
     showPasswordValidation : true,
-    showUserExistValidation:true
+    showUserExistValidation:true,
+    ar:{VerfiedCertificate:"الشهادة الموثقة ",UserName:"إسم المستخدم",password:"الرقم السري",Login:"تسجيل الدخول"},
+    en:{VerfiedCertificate:"Verfied Certificate",UserName:"UserName",password:"password",Login:"Login"},
+    isArabic:false
 }
 
 
@@ -24,7 +27,7 @@ this.state={
     passwordChange=(user)=>{
         this.setState({password:user.target.value});
 
-    }
+    };
 
 
     
@@ -89,14 +92,14 @@ if(stepOver){
             <form>
                 <div className="row reg">
                 <div className="col-md-4 reg-input">
-                <p className="title">Verfied Certificate</p>
-                <input type="text"  placeholder="UserName" className="form-control margin-top" onChange={this.userNameChange}/>
+                <p className="title">{this.state.isArabic ?    (this.state.ar.VerfiedCertificate) : (this.state.en.VerfiedCertificate)}</p>
+                <input type="text"  placeholder={this.state.isArabic ?    (this.state.ar.UserName) : (this.state.en.UserName)} className="form-control margin-top" onChange={this.userNameChange}/>
                 <span style= {{color:"red"}}  hidden={this.state.showUserNameValidation}>this field is required</span>
                 <span style= {{color:"red"}}  hidden={this.state.showUserExistValidation}>wrong in username or password</span>               
-                <input type="password" placeholder="Password" className="form-control margin-top" onChange={this.passwordChange}/>
+                <input type="password" placeholder={this.state.isArabic ?    (this.state.ar.password) : (this.state.en.password)} className="form-control margin-top" onChange={this.passwordChange}/>
                <span style= {{color:"red"}}  hidden={this.state.showPasswordValidation}>this field is required</span>
                <br/>
-    <input type="button" className="btn btn-lg btn-primary btn-custom margin-top" value="login" onClick={this.Login}/>
+    <input type="button" className="btn btn-lg btn-primary btn-custom margin-top" value={this.state.isArabic ?    (this.state.ar.Login) : (this.state.en.Login)} onClick={this.Login}/>
                 </div>
     
                 </div>

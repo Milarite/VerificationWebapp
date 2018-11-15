@@ -38,8 +38,8 @@ super(props);
 this.reader= new FileReader(); 
 this.web3 =  new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/v3/afbac1a223484d84a7784a133d1f2010"));
 this.state = {btnActive : false , url : true, 
-ar:{UploadFiles:"ارفع ملف",copyUrl:"copyUrl",QRCode:"الماسح الضوئي"},
-en:{UploadFiles:"Upload File",copyUrl:"انسخ الرابط ",QRCode:"QRCode"},
+ar:{uploadFile:"ارفع ملف",copyUrl:"copyUrl",QRCode:"الماسح الضوئي"},
+en:{uploadFile:"Upload File",copyUrl:"copy URL ",QRCode:"QRCode"},
 isArabic :false 
 
 }

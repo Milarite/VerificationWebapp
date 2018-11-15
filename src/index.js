@@ -19,14 +19,37 @@ class Index extends Component{
 constructor(props){
   super(props);
 
-  this.state = {IsActive : false , provider : false};
+  this.state = {IsActive : false , provider : false ,
+    ar:{VerifiedCertificate:"الشهادة الموثقة ",Explore:"استعراض",login:"تسجيل الدخول",upload:"رفع الملف",logout:"تسجيل الخروج"},
+    en:{VerifiedCertificate:"Verified Certificate",Explore:"Explore",login:"login",upload:"upload",logout:"logout"},
+    isArabic:false 
+  
+  
+  
+  
+  
+  
+  };
 
   if(localStorage.getItem("provider"))
   {
-    this.state= {IsActive : false  , provider : true};
+    this.state= {IsActive : false  , provider : true ,
+    ar:{VerifiedCertificate:"الشهادة الموثقة ",Explore:"استعراض",login:"تسجيل الدخول",upload:"رفع الملف",logout:"تسجيل الخروج"},
+    en:{VerifiedCertificate:"Verified Certificate",Explore:"Explore",login:"Login",upload:"upload",logout:"logout"},
+    isArabic:false 
+  
+    
 
   }
   
+}
+
+
+
+
+
+
+
 }
 
 logout(){
@@ -49,7 +72,7 @@ window.location.href="/login";
           
             <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className="navbar-brand" href="#">Verified Certificate</a>
+        <a className="navbar-brand" href="#">{this.state.isArabic ?    (this.state.ar.VerifiedCertificate) : (this.state.en.VerifiedCertificate)}</a>
        
       
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -58,19 +81,20 @@ window.location.href="/login";
         
          
             <li className="nav-item">
-              <Link to ="/">Explore</Link>
+              <Link to ="/">{this.state.isArabic ?    (this.state.ar.Explore) : (this.state.en.Explore)}</Link>
             </li>
             <li className="nav-item">
-              <Link hidden={this.state.provider} to ="/Login">Login</Link>
+              <Link hidden={this.state.provider} to ="/Login">{this.state.isArabic ?    (this.state.ar.login) : (this.state.en.login)}</Link>
             </li>
 
             <li className="nav-item">
-            <Link hidden={!this.state.provider} to = "/upload">Upload</Link>
+            <Link hidden={!this.state.provider} to = "/upload">{this.state.isArabic ?    (this.state.ar.upload) : (this.state.en.upload)}</Link>
             </li>
 
             <li className ="nav-item">
-            <span hidden = {!this.state.provider} onClick={this.logout} style={{color:"white" , cursor:"pointer"}}>Logout</span>
+            <span hidden = {!this.state.provider} onClick={this.logout} style={{color:"white" , cursor:"pointer"}}>{!this.state.provider} to = "/upload">{this.state.isArabic ?    (this.state.ar.logout) : (this.state.en.logout)}</span>
             </li>
+
 
        
           </ul>
