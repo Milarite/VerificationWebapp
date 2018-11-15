@@ -35,12 +35,20 @@ class UploadControl extends Component{
     reader = null;
     constructor(props){
 super(props);
+let isArabic = false;
+let lang = localStorage.getItem("lang");
+if(lang){
+if(lang == "ar")
+{
+  isArabic= true;
+}
+}
 this.reader= new FileReader(); 
 this.web3 =  new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/v3/afbac1a223484d84a7784a133d1f2010"));
 this.state = {btnActive : false , url : true, 
 ar:{uploadFile:"ارفع ملف",copyUrl:"copyUrl",QRCode:"الماسح الضوئي"},
 en:{uploadFile:"Upload File",copyUrl:"copy URL ",QRCode:"QRCode"},
-isArabic :false 
+isArabic :isArabic 
 
 }
 

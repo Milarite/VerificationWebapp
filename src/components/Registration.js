@@ -14,11 +14,19 @@ import { isatty } from 'tty';
 class SignUp extends Component{
     constructor(props){
         super(props);
+        let isArabic = false;
+        let lang = localStorage.getItem("lang");
+        if(lang){
+        if(lang == "ar")
+        {
+          isArabic= true;
+        }
+        }
 
 this.state={_userName:"",_password:"", isActive:false,
 showUserNameValidation : true , showPasswordValidation : true,_infoWallet:"",WalletBtnActive : false,
 showUserExistValidation : true , isUserExist : false,
-isArabic:false,
+isArabic:isArabic,
 ar:{UserName:"إسم المستخدم",password:"الرقم السري",SignUp:"تسجيل "},
 en:{UserName:"Username",password:"Password",signup:"Signup"}
 

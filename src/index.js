@@ -18,11 +18,20 @@ class Index extends Component{
  
 constructor(props){
   super(props);
+  let isArabic = false;
+let lang = localStorage.getItem("lang");
+if(lang){
+if(lang == "ar")
+{
+  isArabic= true;
+}
+}
+   
 
   this.state = {IsActive : false , provider : false ,
     ar:{VerifiedCertificate:"الشهادة الموثقة ",Explore:"استعراض",login:"تسجيل الدخول",upload:"رفع الملف",logout:"تسجيل الخروج"},
     en:{VerifiedCertificate:"Verified Certificate",Explore:"Explore",login:"login",upload:"upload",logout:"logout"},
-    isArabic:false 
+    isArabic: isArabic
   
   
   
@@ -36,15 +45,39 @@ constructor(props){
     this.state= {IsActive : false  , provider : true ,
     ar:{VerifiedCertificate:"الشهادة الموثقة ",Explore:"استعراض",login:"تسجيل الدخول",upload:"رفع الملف",logout:"تسجيل الخروج"},
     en:{VerifiedCertificate:"Verified Certificate",Explore:"Explore",login:"Login",upload:"upload",logout:"logout"},
-    isArabic:false 
+    isArabic:isArabic 
   
     
 
   }
+
   
 }
 
 
+
+
+
+
+
+}
+changeLanguage(){
+
+
+let lang = localStorage.getItem("lang");
+
+if(!lang){
+localStorage.setItem("ar");
+this.setState({isArabic:true});
+}else if(lang == "ar") {
+localStorage.setItem("lang","en");
+this.setState({isArabic:false});
+}
+else{
+  localStorage.setItem("lang","ar");
+  this.setState({isArabic:true});
+}
+  
 
 
 
@@ -94,8 +127,9 @@ window.location.href="/login";
             <li className ="nav-item">
             <span hidden = {!this.state.provider} onClick={this.logout} style={{color:"white" , cursor:"pointer"}}>{!this.state.provider} to = "/upload">{this.state.isArabic ?    (this.state.ar.logout) : (this.state.en.logout)}</span>
             </li>
-
-
+<li className="nav-item">
+<span onClick={this.changeLanguage} style={{color:"white" , cursor:"pointer"}}>language</span>
+</li>
        
           </ul>
      

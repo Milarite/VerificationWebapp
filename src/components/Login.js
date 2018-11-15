@@ -4,6 +4,14 @@ import Config from '../config' ;
 class Login extends Component {
     constructor(props){
         super(props);
+        let isArabic = false;
+        let lang = localStorage.getItem("lang");
+        if(lang){
+        if(lang == "ar")
+        {
+          isArabic= true;
+        }
+        }
 this.state={
     UserName:"",
     password:"",
@@ -12,7 +20,7 @@ this.state={
     showUserExistValidation:true,
     ar:{VerfiedCertificate:"الشهادة الموثقة ",UserName:"إسم المستخدم",password:"الرقم السري",Login:"تسجيل الدخول"},
     en:{VerfiedCertificate:"Verfied Certificate",UserName:"UserName",password:"password",Login:"Login"},
-    isArabic:false
+    isArabic:isArabic
 }
 
 
