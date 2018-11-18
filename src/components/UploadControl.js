@@ -35,9 +35,22 @@ class UploadControl extends Component{
     reader = null;
     constructor(props){
 super(props);
+let isArabic = false;
+let lang = localStorage.getItem("lang");
+if(lang){
+if(lang == "ar")
+{
+  isArabic= true;
+}
+}
 this.reader= new FileReader(); 
 this.web3 =  new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/v3/afbac1a223484d84a7784a133d1f2010"));
-this.state = {btnActive : false , url : true }
+this.state = {btnActive : false , url : true, 
+ar:{uploadFile:"ارفع ملف",copyUrl:"copyUrl",QRCode:"الماسح الضوئي"},
+en:{uploadFile:"Upload File",copyUrl:"copy URL ",QRCode:"QRCode"},
+isArabic :isArabic 
+
+}
 
 
     }
@@ -1061,16 +1074,16 @@ render = ()=>{
                     <form method="post" enctype="multipart/form-data">
                         <input type="file" id="files" name="files" multiple="multiple" onChange ={(e) => this.UploadToIPFS(e.target.files[0])} />
                         <p className="customP">
-                            <input type="button" disabled={!this.state.btnActive} onClick={this.uploadFile}  value="Upload Files" className="btn btn-lg btn-primary btn-custom"  />
+                            <input type="button" disabled={!this.state.btnActive} onClick={this.uploadFile}  value={ this.state.isArabic ?    (this.state.ar.uploadFile) : (this.state.en.uploadFile) }  className="btn btn-lg btn-primary btn-custom"  />
                         </p>
                         {/* <input type="text" value={this.state.hash_id} disabled={true} id="hash_id"/> */}
                         <div hidden = {this.state.url} className="qrcontainer">
-                        <p className="upload-result" >Copy your URl {this.state.hash_id}</p>
+                        <p className="upload-result" >{this.state.isArabic ?    (this.state.ar.copyUrl) : (this.state.en.copyUrl)} {this.state.hash_id}</p>
                        
                         <div className="col-md-12" >
                         
                         <div className="upload-result" hidden = {this.state.url}>
-                  <h5>QR Code</h5>
+                  <h5>{this.state.isArabic ?    (this.state.ar.QRCode) : (this.state.en.QRCode)}</h5>
             <QRCode  className="QR" value={String(this.state.hash_id)} />
             </div>
             </div>

@@ -17,17 +17,24 @@ class Explore extends Component {
     }
     constructor(props){
         super(props);
+        let isArabic = false;
+        let lang = localStorage.getItem("lang");
+        if(lang){
+        if(lang == "ar")
+        {
+          isArabic= true;
+        }
+        }
         this.web3 =  new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/v3/afbac1a223484d84a7784a133d1f2010"));
         this.state = {hash : "",url : "" , show : false,
         _age: "", _sex: "", _gpa :"",_major : "",_universityName :"",_nationalID:"",_dateOfBirth:"",_placeOfBirth:"",
         showInfo:false,txHash:"",
 
-        ar :{ Search :"البحث" , txInformation :"معلومات الحركة" ,},
+        ar :{ Search :"البحث" , txInformation :"معلومات الحركة", VerfiedCertificate:"الشهادة الموثقة",textSearch:"البحث" },
 
-        en : {Search :"Search" ,txInformation :"Transaction Information"},
+        en : {Search :"Search" ,txInformation :"Transaction Information",VerfiedCertificate:"Verfied certificate",textSearch:"search topic or keywords"},
 
-
-        isArabic : false
+        isArabic : isArabic
 
 
         
@@ -549,7 +556,9 @@ if(txHash){
 
     render(){
         return (<div>
-            <p className="title">Verfied Certificate</p>
+            <p className="title">
+            {this.state.isArabic ?    (this.state.ar.VerfiedCertificate) : (this.state.en.VerfiedCertificate)}
+            </p>
             <Loadable
              active ={this.state.IsActive}
              spinner
@@ -562,10 +571,11 @@ if(txHash){
                                 <div className="card-body row no-gutters align-items-center">
                                  
                                     <div className="col">
-                                        <input onChange={this.setHash} className="form-control form-control-lg form-control-borderless" type="search" placeholder="Search topics or keywords"/>
+                                        <input onChange={this.setHash} className="form-control form-control-lg form-control-borderless" type="search" placeholder={this.state.isArabic ?    (this.state.ar.textSearch) : (this.state.en.textSearch)}
+                                 />
                                     </div>
                                     <div className="col-auto">
-                                        <button onClick={this.searchForHash} className="btn btn-lg btn-success" type="submit">{ this.state.isArabic ?    (this.state.ar.search) : (this.state.en.search) }</button>
+                                        <button onClick={this.searchForHash} className="btn btn-lg btn-success" type="submit">{this.state.Search ?    (this.state.ar.Search) : (this.state.en.Search)}</button>
                                     </div>
                                 </div>
                                 <div class='tx'>

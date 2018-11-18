@@ -8,15 +8,34 @@ import fs from 'fs';
 import JSAlert from "js-alert";
 import Config from '../config';
 import config from '../config';
+import { isatty } from 'tty';
 
 
 class SignUp extends Component{
     constructor(props){
         super(props);
+        let isArabic = false;
+        let lang = localStorage.getItem("lang");
+        if(lang){
+        if(lang == "ar")
+        {
+          isArabic= true;
+        }
+        }
 
 this.state={_userName:"",_password:"", isActive:false,
 showUserNameValidation : true , showPasswordValidation : true,_infoWallet:"",WalletBtnActive : false,
-showUserExistValidation : true , isUserExist : false};
+showUserExistValidation : true , isUserExist : false,
+isArabic:isArabic,
+ar:{UserName:"إسم المستخدم",password:"الرقم السري",SignUp:"تسجيل "},
+en:{UserName:"Username",password:"Password",signup:"Signup"}
+
+
+
+
+
+
+};
 
 
 
@@ -150,20 +169,20 @@ app.setState({walletpk:result.privateKey});
               
                <div className="col-md-4 reg-input">
                <p className="title">Verfied Certificate</p>
-               <input  type="text" onBlur = {this.checkUserName} onChange={this.updateuserName} placeholder="UserName" className= "form-control margin-top"/>
+               <input  type="text" onBlur = {this.checkUserName} onChange={this.updateuserName} placeholder={ this.state.isArabic ?    (this.state.ar.UserName) : (this.state.en.UserName) } className= "form-control margin-top"/>
                <span style= {{color:"red"}}  hidden={this.state.showUserNameValidation}>this field is required</span>
                <span  style= {{color:"red"}}  hidden={this.state.showUserExistValidation}>user already exist</span>
-               <input type="password" placeholder="Password" onChange={this.updatePassword} className="form-control margin-top reg-input"/>
+               <input type="password" placeholder={ this.state.isArabic ?    (this.state.ar.password) : (this.state.en.password) } onChange={this.updatePassword} className="form-control margin-top reg-input"/>
                <span style= {{color:"red"}}  hidden={this.state.showPasswordValidation}>this field is required</span>
 
                </div>
                </div>
-               <input  type="button" onClick={this.SignUp} value="sign up" className="btn btn-lg btn-primary btn-custom margin-top"/> 
+               <input  type="button" onClick={this.SignUp} value={ this.state.isArabic ?    (this.state.ar.signup) : (this.state.en.signup) } className="btn btn-lg btn-primary btn-custom margin-top"/> 
             </form>
             <br/>
             <br/>
             <div hidden={!(this.state.walletpk != null)}>
-            <label>Copy Privatekey</label>
+            <label>{ this.state.isArabic ?    (this.state.ar.copyPriavteKey) : (this.state.en.copyPriavteKey) }</label>
             
             <div class="row">
             
