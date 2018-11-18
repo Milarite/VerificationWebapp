@@ -27,8 +27,8 @@ this.state={_userName:"",_password:"", isActive:false,
 showUserNameValidation : true , showPasswordValidation : true,_infoWallet:"",WalletBtnActive : false,
 showUserExistValidation : true , isUserExist : false,
 isArabic:isArabic,
-ar:{UserName:"إسم المستخدم",password:"الرقم السري",signup:"تسجيل ",VerfiedCertificate:"الشهادة الموثقة",signupsucc:"تم التسجيل بنجاح"},
-en:{UserName:"Username",password:"Password",signup:"Signup",VerfiedCertificate:"Verfied Certificate",signupsucc:"signup successfully "}
+ar:{UserName:"إسم المستخدم",password:"الرقم السري",signup:"تسجيل ",VerfiedCertificate:"الشهادة الموثقة",signupsucc:"تم التسجيل بنجاح",downloadkeystore:" تحميل المفتاح"},
+en:{UserName:"Username",password:"Password",signup:"Signup",VerfiedCertificate:"Verfied Certificate",signupsucc:"signup successfully ",downloadkeystore:"download key store"}
 
 
 
@@ -191,7 +191,7 @@ app.setState({walletpk:result.privateKey});
             <input type="text" class="form-control" readOnly={true}  value={this.state.walletpk} />
             </div>
             </div>
-            <input type="button" hidden = {!this.state.WalletBtnActive} onClick={this.saveWalletToFile} value="download key store" className="btn btn-lg btn-primary btn-custom margin-top"/>
+            <input type="button" hidden = {!this.state.WalletBtnActive} onClick={this.saveWalletToFile} value= { this.state.isArabic ?    (this.state.ar.downloadkeystore) : (this.state.en.downloadkeystore) }className="btn btn-lg btn-primary btn-custom margin-top"/>
 
             </div>
             </div>
