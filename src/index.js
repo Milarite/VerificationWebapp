@@ -31,8 +31,8 @@ if(lang == "ar")
    
 
   this.state = {IsActive : false , provider : false ,
-    ar:{VerifiedCertificate:"الشهادة الموثقة ",Explore:"استعراض",login:"تسجيل الدخول",upload:"رفع الملف",logout:"تسجيل الخروج"},
-    en:{VerifiedCertificate:"Verified Certificate",Explore:"Explore",login:"login",upload:"upload",logout:"logout"},
+    ar:{VerifiedCertificate:"الشهادة الموثقة ",Explore:"استعراض",login:"تسجيل الدخول",upload:"رفع الملف",logout:"تسجيل الخروج",lang:"إنجليزي"},
+    en:{VerifiedCertificate:"Verified Certificate",Explore:"Explore",login:"login",upload:"upload",logout:"logout",lang:"Arabic"},
     isArabic: isArabic
   
   
@@ -45,8 +45,8 @@ if(lang == "ar")
   if(localStorage.getItem("provider"))
   {
     this.state= {IsActive : false  , provider : true ,
-    ar:{VerifiedCertificate:"الشهادة الموثقة ",Explore:"استعراض",login:"تسجيل الدخول",upload:"رفع الملف",logout:"تسجيل الخروج"},
-    en:{VerifiedCertificate:"Verified Certificate",Explore:"Explore",login:"Login",upload:"upload",logout:"logout"},
+    ar:{VerifiedCertificate:"الشهادة الموثقة ",Explore:"استعراض",login:"تسجيل الدخول",upload:"رفع الملف",logout:"تسجيل الخروج",lang:"انجليزي"},
+    en:{VerifiedCertificate:"Verified Certificate",Explore:"Explore",login:"Login",upload:"upload",logout:"logout",lang:"Arabic"},
     isArabic:isArabic 
   
     
@@ -137,7 +137,7 @@ window.location.href="/login";
             <span hidden = {!this.state.provider} onClick={this.logout} style={{color:"white" , cursor:"pointer"}}>{this.state.isArabic ?    (this.state.ar.logout) : (this.state.en.logout)}</span>
             </li>
 <li className="nav-item">
-<span onClick={this.changeLanguage} style={{color:"white" , cursor:"pointer"}}>language</span>
+<span onClick={this.changeLanguage} style={{color:"white" , cursor:"pointer"}}>{this.state.isArabic ?    (this.state.ar.lang) : (this.state.en.lang)}</span>
 </li>
        
           </ul>

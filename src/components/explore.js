@@ -63,52 +63,56 @@ class Explore extends Component {
                 "constant": false,
                 "inputs": [
                     {
+                        "name": "tx",
+                        "type": "string"
+                    },
+                    {
                         "name": "_hash",
                         "type": "string"
                     },
                     {
                         "name": "_firstName",
-                        "type": "string"
+                        "type": "bytes32"
                     },
                     {
                         "name": "_lastName",
-                        "type": "string"
+                        "type": "bytes32"
                     },
                     {
                         "name": "_age",
-                        "type": "string"
+                        "type": "bytes32"
                     },
                     {
                         "name": "_sex",
-                        "type": "string"
+                        "type": "bytes32"
                     },
                     {
                         "name": "_gpa",
-                        "type": "string"
+                        "type": "bytes32"
                     },
                     {
                         "name": "_major",
-                        "type": "string"
+                        "type": "bytes32"
                     },
                     {
                         "name": "_universityName",
-                        "type": "string"
+                        "type": "bytes32"
                     },
                     {
                         "name": "_nationalID",
-                        "type": "string"
+                        "type": "bytes32"
                     },
                     {
                         "name": "_dateOfBirth",
-                        "type": "string"
+                        "type": "bytes32"
                     },
                     {
                         "name": "_placeOfBirth",
-                        "type": "string"
+                        "type": "bytes32"
                     },
                     {
                         "name": "uploader",
-                        "type": "string"
+                        "type": "bytes32"
                     }
                 ],
                 "name": "addHash",
@@ -121,15 +125,15 @@ class Explore extends Component {
                 "constant": false,
                 "inputs": [
                     {
-                        "name": "_hash",
-                        "type": "string"
+                        "name": "_username",
+                        "type": "bytes32"
                     },
                     {
-                        "name": "_transaction",
-                        "type": "string"
+                        "name": "_password",
+                        "type": "bytes32"
                     }
                 ],
-                "name": "saveTransaction",
+                "name": "addOwner",
                 "outputs": [],
                 "payable": false,
                 "stateMutability": "nonpayable",
@@ -144,24 +148,6 @@ class Explore extends Component {
                     }
                 ],
                 "name": "setUrl",
-                "outputs": [],
-                "payable": false,
-                "stateMutability": "nonpayable",
-                "type": "function"
-            },
-            {
-                "constant": false,
-                "inputs": [
-                    {
-                        "name": "_username",
-                        "type": "string"
-                    },
-                    {
-                        "name": "_password",
-                        "type": "string"
-                    }
-                ],
-                "name": "signupUploader",
                 "outputs": [],
                 "payable": false,
                 "stateMutability": "nonpayable",
@@ -191,14 +177,18 @@ class Explore extends Component {
                 "inputs": [
                     {
                         "name": "_username",
-                        "type": "string"
+                        "type": "bytes32"
                     }
                 ],
-                "name": "checkSignedupBefore",
+                "name": "checkSignedBefore",
                 "outputs": [
                     {
                         "name": "",
-                        "type": "bool"
+                        "type": "bytes32"
+                    },
+                    {
+                        "name": "",
+                        "type": "bytes32"
                     }
                 ],
                 "payable": false,
@@ -213,68 +203,23 @@ class Explore extends Component {
                         "type": "string"
                     }
                 ],
-                "name": "getAge",
+                "name": "getAllInformation",
                 "outputs": [
                     {
                         "name": "",
                         "type": "string"
-                    }
-                ],
-                "payable": false,
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "constant": true,
-                "inputs": [
-                    {
-                        "name": "_hash",
-                        "type": "string"
-                    }
-                ],
-                "name": "getDateOfBirth",
-                "outputs": [
+                    },
                     {
                         "name": "",
-                        "type": "string"
-                    }
-                ],
-                "payable": false,
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "constant": true,
-                "inputs": [
-                    {
-                        "name": "_hash",
-                        "type": "string"
-                    }
-                ],
-                "name": "getFirstName",
-                "outputs": [
+                        "type": "bytes32"
+                    },
                     {
                         "name": "",
-                        "type": "string"
-                    }
-                ],
-                "payable": false,
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "constant": true,
-                "inputs": [
-                    {
-                        "name": "_hash",
-                        "type": "string"
-                    }
-                ],
-                "name": "getGPA",
-                "outputs": [
+                        "type": "bytes32"
+                    },
                     {
                         "name": "",
-                        "type": "string"
+                        "type": "bytes32[9]"
                     }
                 ],
                 "payable": false,
@@ -316,139 +261,6 @@ class Explore extends Component {
             },
             {
                 "constant": true,
-                "inputs": [
-                    {
-                        "name": "_hash",
-                        "type": "string"
-                    }
-                ],
-                "name": "getLastName",
-                "outputs": [
-                    {
-                        "name": "",
-                        "type": "string"
-                    }
-                ],
-                "payable": false,
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "constant": true,
-                "inputs": [
-                    {
-                        "name": "_hash",
-                        "type": "string"
-                    }
-                ],
-                "name": "getMajor",
-                "outputs": [
-                    {
-                        "name": "",
-                        "type": "string"
-                    }
-                ],
-                "payable": false,
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "constant": true,
-                "inputs": [
-                    {
-                        "name": "_hash",
-                        "type": "string"
-                    }
-                ],
-                "name": "getNationalID",
-                "outputs": [
-                    {
-                        "name": "",
-                        "type": "string"
-                    }
-                ],
-                "payable": false,
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "constant": true,
-                "inputs": [
-                    {
-                        "name": "_hash",
-                        "type": "string"
-                    }
-                ],
-                "name": "getPlaceOfBirth",
-                "outputs": [
-                    {
-                        "name": "",
-                        "type": "string"
-                    }
-                ],
-                "payable": false,
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "constant": true,
-                "inputs": [
-                    {
-                        "name": "_hash",
-                        "type": "string"
-                    }
-                ],
-                "name": "getSex",
-                "outputs": [
-                    {
-                        "name": "",
-                        "type": "string"
-                    }
-                ],
-                "payable": false,
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "constant": true,
-                "inputs": [
-                    {
-                        "name": "_hash",
-                        "type": "string"
-                    }
-                ],
-                "name": "getTransactions",
-                "outputs": [
-                    {
-                        "name": "",
-                        "type": "string"
-                    }
-                ],
-                "payable": false,
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "constant": true,
-                "inputs": [
-                    {
-                        "name": "_hash",
-                        "type": "string"
-                    }
-                ],
-                "name": "getUniversityName",
-                "outputs": [
-                    {
-                        "name": "",
-                        "type": "string"
-                    }
-                ],
-                "payable": false,
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "constant": true,
                 "inputs": [],
                 "name": "getUrl",
                 "outputs": [
@@ -460,57 +272,18 @@ class Explore extends Component {
                 "payable": false,
                 "stateMutability": "view",
                 "type": "function"
-            },
-            {
-                "constant": true,
-                "inputs": [
-                    {
-                        "name": "_address",
-                        "type": "address"
-                    }
-                ],
-                "name": "signinAdmin",
-                "outputs": [
-                    {
-                        "name": "",
-                        "type": "bool"
-                    }
-                ],
-                "payable": false,
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "constant": true,
-                "inputs": [
-                    {
-                        "name": "_username",
-                        "type": "string"
-                    },
-                    {
-                        "name": "_password",
-                        "type": "string"
-                    }
-                ],
-                "name": "signinUploader",
-                "outputs": [
-                    {
-                        "name": "",
-                        "type": "bool"
-                    }
-                ],
-                "payable": false,
-                "stateMutability": "view",
-                "type": "function"
             }
         ]
         
      const contract =  this.web3.eth.contract(abi);
 const privateKey = "EEFD9B722FDB3186875E521C87745DC102ABE04A944BCC485DAB385D2949842F";
 const publicKey ="0xaD3843ed864169D4e840651A49bD794F12095162";
-        const smartInstance = contract.at("0xd107ad248e9d268b7f65870d988b616fb2bacc8a");
+        const smartInstance = contract.at("0xb67456c033d5cb91fe005bfa69dfe71211494fe4");
 
-//let data = smartInstance.getTransactions.getData(_hash);
+let data = smartInstance.getAllInformation.call(_hash);
+
+console.log(data);
+
 let txHash = smartInstance.getTransactions.call(this.state.hash);
 let _dateOfBirth=smartInstance.getDateOfBirth.call(this.state.hash);
 let _placeOfBirth=smartInstance.getPlaceOfBirth.call(this.state.hash);
@@ -575,7 +348,7 @@ if(txHash){
                                  />
                                     </div>
                                     <div className="col-auto">
-                                        <button onClick={this.searchForHash} className="btn btn-lg btn-success" type="submit">{this.state.Search ?    (this.state.ar.Search) : (this.state.en.Search)}</button>
+                                        <button onClick={this.searchForHash} className="btn btn-lg btn-success" type="submit">{this.state.isArabic ?    (this.state.ar.Search) : (this.state.en.Search)}</button>
                                     </div>
                                 </div>
                                 <div class='tx'>
