@@ -46,8 +46,8 @@ if(lang == "ar")
 this.reader= new FileReader(); 
 this.web3 =  new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/v3/afbac1a223484d84a7784a133d1f2010"));
 this.state = {btnActive : false , url : true, 
-ar:{uploadFile:"ارفع ملف",copyUrl:"copyUrl",QRCode:"الماسح الضوئي"},
-en:{uploadFile:"Upload File",copyUrl:"copy URL ",QRCode:"QRCode"},
+ar:{uploadFile:"إرفع الملف",copyUrl:"إنسخ الرابط",QRCode:"الماسح الضوئي", uploadsucc:"تم التحميل بنجاح"},
+en:{uploadFile:"Upload File",copyUrl:"copy URL ",QRCode:"QRCode",uploadsucc:"uploaded succesfully "},
 isArabic :isArabic 
 
 }
@@ -978,7 +978,7 @@ if(!err)
     {
       
         app.props.onUploadLoadSpiner(false);
-        JSAlert.alert("uploaded succesfully");
+        JSAlert.alert(app.state.isArabic ?    (app.state.ar.uploadsucc) : (app.state.en.uploadsucc));
         app.setState({url:false});
         app.setState({hash_id:_hash});
        

@@ -27,8 +27,8 @@ this.state={_userName:"",_password:"", isActive:false,
 showUserNameValidation : true , showPasswordValidation : true,_infoWallet:"",WalletBtnActive : false,
 showUserExistValidation : true , isUserExist : false,
 isArabic:isArabic,
-ar:{UserName:"إسم المستخدم",password:"الرقم السري",SignUp:"تسجيل "},
-en:{UserName:"Username",password:"Password",signup:"Signup"}
+ar:{UserName:"إسم المستخدم",password:"الرقم السري",signup:"تسجيل ",VerfiedCertificate:"الشهادة الموثقة",signupsucc:"تم التسجيل بنجاح"},
+en:{UserName:"Username",password:"Password",signup:"Signup",VerfiedCertificate:"Verfied Certificate",signupsucc:"signup successfully "}
 
 
 
@@ -93,7 +93,7 @@ app.setState({walletpk:result.privateKey});
 
 ///// end save wallet as downoaladable file
     });
-    JSAlert.alert("signup successfully");
+    JSAlert.alert( app.state.isArabic ?    (app.state.ar.signupsucc) : (app.state.en.signupsucc) );
     
 
 
@@ -168,7 +168,7 @@ app.setState({walletpk:result.privateKey});
                <div className="row">
               
                <div className="col-md-4 reg-input">
-               <p className="title">Verfied Certificate</p>
+               <p className="title">{ this.state.isArabic ?    (this.state.ar.VerfiedCertificate) : (this.state.en.VerfiedCertificate) }</p>
                <input  type="text" onBlur = {this.checkUserName} onChange={this.updateuserName} placeholder={ this.state.isArabic ?    (this.state.ar.UserName) : (this.state.en.UserName) } className= "form-control margin-top"/>
                <span style= {{color:"red"}}  hidden={this.state.showUserNameValidation}>this field is required</span>
                <span  style= {{color:"red"}}  hidden={this.state.showUserExistValidation}>user already exist</span>
