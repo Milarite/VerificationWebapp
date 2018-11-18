@@ -990,7 +990,7 @@ if(!err)
     {
       
         app.props.onUploadLoadSpiner(false);
-        JSAlert.alert("uploaded succsesfull");
+        JSAlert.alert("uploaded succesfully");
         app.setState({url:false});
         app.setState({hash_id:_hash});
         // const email = new Email({

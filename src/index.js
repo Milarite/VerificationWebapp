@@ -15,6 +15,8 @@ import AdminLogin from './components/AdminLogin';
 
 class Index extends Component{
   
+
+  
  
 constructor(props){
   super(props);
@@ -51,6 +53,10 @@ if(lang == "ar")
 
   }
 
+
+
+
+
   
 }
 
@@ -61,8 +67,9 @@ if(lang == "ar")
 
 
 }
-changeLanguage(){
+changeLanguage = () => {
 
+  
 
 let lang = localStorage.getItem("lang");
 
@@ -77,6 +84,8 @@ else{
   localStorage.setItem("lang","ar");
   this.setState({isArabic:true});
 }
+
+window.location.reload();
   
 
 
@@ -125,7 +134,7 @@ window.location.href="/login";
             </li>
 
             <li className ="nav-item">
-            <span hidden = {!this.state.provider} onClick={this.logout} style={{color:"white" , cursor:"pointer"}}>{!this.state.provider} to = "/upload">{this.state.isArabic ?    (this.state.ar.logout) : (this.state.en.logout)}</span>
+            <span hidden = {!this.state.provider} onClick={this.logout} style={{color:"white" , cursor:"pointer"}}>{this.state.isArabic ?    (this.state.ar.logout) : (this.state.en.logout)}</span>
             </li>
 <li className="nav-item">
 <span onClick={this.changeLanguage} style={{color:"white" , cursor:"pointer"}}>language</span>
