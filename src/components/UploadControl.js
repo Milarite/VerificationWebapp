@@ -109,7 +109,7 @@ isArabic :isArabic
                 data : data,
                 nonce : nonce,
                 gasPrice :currentWeb3.toHex(currentWeb3.toWei('20', 'gwei')),
-                to : '0xb67456c033d5cb91fe005bfa69dfe71211494fe4',
+                to : '0xd107ad248e9d268b7f65870d988b616fb2bacc8a',
                 value : 0,
                 gasLimit: 1000000
                 
@@ -130,22 +130,97 @@ return rawTx ;
     checkHashIsExist = (_hash) => {
         let abi=[
             {
-                "constant": true,
+                "constant": false,
                 "inputs": [
                     {
-                        "name": "_hast",
+                        "name": "_hash",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_firstName",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_lastName",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_age",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_sex",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_gpa",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_major",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_universityName",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_nationalID",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_dateOfBirth",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_placeOfBirth",
+                        "type": "string"
+                    },
+                    {
+                        "name": "uploader",
                         "type": "string"
                     }
                 ],
-                "name": "checkHashExsist",
-                "outputs": [
+                "name": "addHash",
+                "outputs": [],
+                "payable": false,
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "constant": false,
+                "inputs": [
                     {
-                        "name": "",
-                        "type": "bool"
+                        "name": "_username",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_password",
+                        "type": "string"
                     }
                 ],
+                "name": "addOwner",
+                "outputs": [],
                 "payable": false,
-                "stateMutability": "view",
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "constant": false,
+                "inputs": [
+                    {
+                        "name": "_hash",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_transaction",
+                        "type": "string"
+                    }
+                ],
+                "name": "saveTransaction",
+                "outputs": [],
+                "payable": false,
+                "stateMutability": "nonpayable",
                 "type": "function"
             },
             {
@@ -166,27 +241,15 @@ return rawTx ;
                 "constant": true,
                 "inputs": [
                     {
-                        "name": "_hash",
+                        "name": "_hast",
                         "type": "string"
                     }
                 ],
-                "name": "getAllInformation",
+                "name": "checkHashExsist",
                 "outputs": [
                     {
                         "name": "",
-                        "type": "string"
-                    },
-                    {
-                        "name": "",
-                        "type": "bytes32"
-                    },
-                    {
-                        "name": "",
-                        "type": "bytes32"
-                    },
-                    {
-                        "name": "",
-                        "type": "bytes32[9]"
+                        "type": "bool"
                     }
                 ],
                 "payable": false,
@@ -217,65 +280,79 @@ return rawTx ;
                 "type": "function"
             },
             {
-                "constant": false,
+                "constant": true,
                 "inputs": [
-                    {
-                        "name": "tx",
-                        "type": "string"
-                    },
                     {
                         "name": "_hash",
                         "type": "string"
-                    },
-                    {
-                        "name": "_firstName",
-                        "type": "bytes32"
-                    },
-                    {
-                        "name": "_lastName",
-                        "type": "bytes32"
-                    },
-                    {
-                        "name": "_age",
-                        "type": "bytes32"
-                    },
-                    {
-                        "name": "_sex",
-                        "type": "bytes32"
-                    },
-                    {
-                        "name": "_gpa",
-                        "type": "bytes32"
-                    },
-                    {
-                        "name": "_major",
-                        "type": "bytes32"
-                    },
-                    {
-                        "name": "_universityName",
-                        "type": "bytes32"
-                    },
-                    {
-                        "name": "_nationalID",
-                        "type": "bytes32"
-                    },
-                    {
-                        "name": "_dateOfBirth",
-                        "type": "bytes32"
-                    },
-                    {
-                        "name": "_placeOfBirth",
-                        "type": "bytes32"
-                    },
-                    {
-                        "name": "uploader",
-                        "type": "bytes32"
                     }
                 ],
-                "name": "addHash",
-                "outputs": [],
+                "name": "getAge",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
                 "payable": false,
-                "stateMutability": "nonpayable",
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_hash",
+                        "type": "string"
+                    }
+                ],
+                "name": "getDateOfBirth",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_hash",
+                        "type": "string"
+                    }
+                ],
+                "name": "getFirstName",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_hash",
+                        "type": "string"
+                    }
+                ],
+                "name": "getGPA",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
                 "type": "function"
             },
             {
@@ -298,24 +375,6 @@ return rawTx ;
                 "type": "function"
             },
             {
-                "constant": false,
-                "inputs": [
-                    {
-                        "name": "_username",
-                        "type": "string"
-                    },
-                    {
-                        "name": "_password",
-                        "type": "string"
-                    }
-                ],
-                "name": "addOwner",
-                "outputs": [],
-                "payable": false,
-                "stateMutability": "nonpayable",
-                "type": "function"
-            },
-            {
                 "constant": true,
                 "inputs": [],
                 "name": "getHashLength",
@@ -323,6 +382,139 @@ return rawTx ;
                     {
                         "name": "",
                         "type": "uint256"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_hash",
+                        "type": "string"
+                    }
+                ],
+                "name": "getLastName",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_hash",
+                        "type": "string"
+                    }
+                ],
+                "name": "getMajor",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_hash",
+                        "type": "string"
+                    }
+                ],
+                "name": "getNationalID",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_hash",
+                        "type": "string"
+                    }
+                ],
+                "name": "getPlaceOfBirth",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_hash",
+                        "type": "string"
+                    }
+                ],
+                "name": "getSex",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_hash",
+                        "type": "string"
+                    }
+                ],
+                "name": "getTransactions",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_hash",
+                        "type": "string"
+                    }
+                ],
+                "name": "getUniversityName",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "string"
                     }
                 ],
                 "payable": false,
@@ -347,7 +539,7 @@ return rawTx ;
      const contract =  this.web3.eth.contract(abi);
 const privateKey = "EEFD9B722FDB3186875E521C87745DC102ABE04A944BCC485DAB385D2949842F";
 const publicKey ="0xaD3843ed864169D4e840651A49bD794F12095162";
-        const smartInstance = contract.at("0xb67456c033d5cb91fe005bfa69dfe71211494fe4");
+        const smartInstance = contract.at("0xd107ad248e9d268b7f65870d988b616fb2bacc8a");
 
         let h = smartInstance.checkHashExsist.call(_hash);
     } 
@@ -355,22 +547,97 @@ const publicKey ="0xaD3843ed864169D4e840651A49bD794F12095162";
         console.log(_hash);
         let abi=[
             {
-                "constant": true,
+                "constant": false,
                 "inputs": [
                     {
-                        "name": "_hast",
+                        "name": "_hash",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_firstName",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_lastName",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_age",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_sex",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_gpa",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_major",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_universityName",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_nationalID",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_dateOfBirth",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_placeOfBirth",
+                        "type": "string"
+                    },
+                    {
+                        "name": "uploader",
                         "type": "string"
                     }
                 ],
-                "name": "checkHashExsist",
-                "outputs": [
+                "name": "addHash",
+                "outputs": [],
+                "payable": false,
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "constant": false,
+                "inputs": [
                     {
-                        "name": "",
-                        "type": "bool"
+                        "name": "_username",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_password",
+                        "type": "string"
                     }
                 ],
+                "name": "addOwner",
+                "outputs": [],
                 "payable": false,
-                "stateMutability": "view",
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "constant": false,
+                "inputs": [
+                    {
+                        "name": "_hash",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_transaction",
+                        "type": "string"
+                    }
+                ],
+                "name": "saveTransaction",
+                "outputs": [],
+                "payable": false,
+                "stateMutability": "nonpayable",
                 "type": "function"
             },
             {
@@ -391,27 +658,15 @@ const publicKey ="0xaD3843ed864169D4e840651A49bD794F12095162";
                 "constant": true,
                 "inputs": [
                     {
-                        "name": "_hash",
+                        "name": "_hast",
                         "type": "string"
                     }
                 ],
-                "name": "getAllInformation",
+                "name": "checkHashExsist",
                 "outputs": [
                     {
                         "name": "",
-                        "type": "string"
-                    },
-                    {
-                        "name": "",
-                        "type": "bytes32"
-                    },
-                    {
-                        "name": "",
-                        "type": "bytes32"
-                    },
-                    {
-                        "name": "",
-                        "type": "bytes32[9]"
+                        "type": "bool"
                     }
                 ],
                 "payable": false,
@@ -442,65 +697,79 @@ const publicKey ="0xaD3843ed864169D4e840651A49bD794F12095162";
                 "type": "function"
             },
             {
-                "constant": false,
+                "constant": true,
                 "inputs": [
-                    {
-                        "name": "tx",
-                        "type": "string"
-                    },
                     {
                         "name": "_hash",
                         "type": "string"
-                    },
-                    {
-                        "name": "_firstName",
-                        "type": "bytes32"
-                    },
-                    {
-                        "name": "_lastName",
-                        "type": "bytes32"
-                    },
-                    {
-                        "name": "_age",
-                        "type": "bytes32"
-                    },
-                    {
-                        "name": "_sex",
-                        "type": "bytes32"
-                    },
-                    {
-                        "name": "_gpa",
-                        "type": "bytes32"
-                    },
-                    {
-                        "name": "_major",
-                        "type": "bytes32"
-                    },
-                    {
-                        "name": "_universityName",
-                        "type": "bytes32"
-                    },
-                    {
-                        "name": "_nationalID",
-                        "type": "bytes32"
-                    },
-                    {
-                        "name": "_dateOfBirth",
-                        "type": "bytes32"
-                    },
-                    {
-                        "name": "_placeOfBirth",
-                        "type": "bytes32"
-                    },
-                    {
-                        "name": "uploader",
-                        "type": "bytes32"
                     }
                 ],
-                "name": "addHash",
-                "outputs": [],
+                "name": "getAge",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
                 "payable": false,
-                "stateMutability": "nonpayable",
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_hash",
+                        "type": "string"
+                    }
+                ],
+                "name": "getDateOfBirth",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_hash",
+                        "type": "string"
+                    }
+                ],
+                "name": "getFirstName",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_hash",
+                        "type": "string"
+                    }
+                ],
+                "name": "getGPA",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
                 "type": "function"
             },
             {
@@ -523,24 +792,6 @@ const publicKey ="0xaD3843ed864169D4e840651A49bD794F12095162";
                 "type": "function"
             },
             {
-                "constant": false,
-                "inputs": [
-                    {
-                        "name": "_username",
-                        "type": "string"
-                    },
-                    {
-                        "name": "_password",
-                        "type": "string"
-                    }
-                ],
-                "name": "addOwner",
-                "outputs": [],
-                "payable": false,
-                "stateMutability": "nonpayable",
-                "type": "function"
-            },
-            {
                 "constant": true,
                 "inputs": [],
                 "name": "getHashLength",
@@ -548,6 +799,139 @@ const publicKey ="0xaD3843ed864169D4e840651A49bD794F12095162";
                     {
                         "name": "",
                         "type": "uint256"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_hash",
+                        "type": "string"
+                    }
+                ],
+                "name": "getLastName",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_hash",
+                        "type": "string"
+                    }
+                ],
+                "name": "getMajor",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_hash",
+                        "type": "string"
+                    }
+                ],
+                "name": "getNationalID",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_hash",
+                        "type": "string"
+                    }
+                ],
+                "name": "getPlaceOfBirth",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_hash",
+                        "type": "string"
+                    }
+                ],
+                "name": "getSex",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_hash",
+                        "type": "string"
+                    }
+                ],
+                "name": "getTransactions",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_hash",
+                        "type": "string"
+                    }
+                ],
+                "name": "getUniversityName",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "string"
                     }
                 ],
                 "payable": false,
@@ -572,7 +956,7 @@ const publicKey ="0xaD3843ed864169D4e840651A49bD794F12095162";
      const contract =  this.web3.eth.contract(abi);
 const privateKey = "EEFD9B722FDB3186875E521C87745DC102ABE04A944BCC485DAB385D2949842F";
 const publicKey ="0xaD3843ed864169D4e840651A49bD794F12095162";
-        const smartInstance = contract.at("0xb67456c033d5cb91fe005bfa69dfe71211494fe4");
+        const smartInstance = contract.at("0xd107ad248e9d268b7f65870d988b616fb2bacc8a");
 
 
 //////// add raw transaction 
