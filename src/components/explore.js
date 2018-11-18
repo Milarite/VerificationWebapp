@@ -22,9 +22,10 @@ class Explore extends Component {
         _age: "", _sex: "", _gpa :"",_major : "",_universityName :"",_nationalID:"",_dateOfBirth:"",_placeOfBirth:"",
         showInfo:false,txHash:"",
 
-        ar :{ Search :"البحث" , txInformation :"معلومات الحركة" },
+        ar :{ Search :"البحث" , txInformation :"معلومات الحركة" ,},
 
         en : {Search :"Search" ,txInformation :"Transaction Information"},
+
 
         isArabic : false
 
