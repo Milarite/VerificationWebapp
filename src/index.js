@@ -74,7 +74,7 @@ changeLanguage = () => {
 let lang = localStorage.getItem("lang");
 
 if(!lang){
-localStorage.setItem("ar");
+localStorage.setItem("lang","ar");
 this.setState({isArabic:true});
 }else if(lang == "ar") {
 localStorage.setItem("lang","en");
