@@ -58,7 +58,7 @@ class Explore extends Component {
        
        
         
-        let abi = [
+        let abi =[
             {
                 "constant": false,
                 "inputs": [
@@ -107,6 +107,10 @@ class Explore extends Component {
                         "type": "string"
                     },
                     {
+                        "name": "_studentId",
+                        "type": "string"
+                    },
+                    {
                         "name": "uploader",
                         "type": "string"
                     }
@@ -121,11 +125,11 @@ class Explore extends Component {
                 "constant": false,
                 "inputs": [
                     {
-                        "name": "_username",
+                        "name": "username",
                         "type": "string"
                     },
                     {
-                        "name": "_password",
+                        "name": "password",
                         "type": "string"
                     }
                 ],
@@ -168,18 +172,40 @@ class Explore extends Component {
                 "type": "function"
             },
             {
-                "constant": true,
+                "constant": false,
                 "inputs": [
                     {
-                        "name": "_hast",
+                        "name": "_username",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_password",
                         "type": "string"
                     }
                 ],
-                "name": "checkHashExsist",
+                "name": "signupUploader",
+                "outputs": [],
+                "payable": false,
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_hash",
+                        "type": "string"
+                    }
+                ],
+                "name": "checkSignedBefore",
                 "outputs": [
                     {
                         "name": "",
-                        "type": "bool"
+                        "type": "string"
+                    },
+                    {
+                        "name": "",
+                        "type": "string"
                     }
                 ],
                 "payable": false,
@@ -194,15 +220,11 @@ class Explore extends Component {
                         "type": "string"
                     }
                 ],
-                "name": "checkSignedBefore",
+                "name": "checkSignedupBefore",
                 "outputs": [
                     {
                         "name": "",
-                        "type": "string"
-                    },
-                    {
-                        "name": "",
-                        "type": "string"
+                        "type": "bool"
                     }
                 ],
                 "payable": false,
@@ -421,6 +443,25 @@ class Explore extends Component {
                         "type": "string"
                     }
                 ],
+                "name": "getStudentId",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_hash",
+                        "type": "string"
+                    }
+                ],
                 "name": "getTransactions",
                 "outputs": [
                     {
@@ -464,13 +505,32 @@ class Explore extends Component {
                 "payable": false,
                 "stateMutability": "view",
                 "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_address",
+                        "type": "address"
+                    }
+                ],
+                "name": "signinAdmin",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "bool"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
             }
         ]
         
      const contract =  this.web3.eth.contract(abi);
 const privateKey = "EEFD9B722FDB3186875E521C87745DC102ABE04A944BCC485DAB385D2949842F";
 const publicKey ="0xaD3843ed864169D4e840651A49bD794F12095162";
-        const smartInstance = contract.at("0xd107ad248e9d268b7f65870d988b616fb2bacc8a");
+        const smartInstance = contract.at("0xe0540eb9bc31af04fe22df0b23a6076673790a35");
 
 //let data = smartInstance.getAllInformation.call(_hash);
 
@@ -493,7 +553,6 @@ let _name=_firstName +" "+_lastName;
 
 
 
-if(txHash){
     this.setState({
         txHash : txHash,
     _dateOfBirth:_dateOfBirth,
@@ -510,12 +569,13 @@ if(txHash){
     
     
     })
+
     
    this.setState({hash:txHash, show:true});
  
    
     
-}
+
 
     }
 

@@ -3,12 +3,12 @@ import ethTx from 'ethereumjs-tx';
 import Ethereum from "ethers-wallet";
 import ipfsAPI from 'ipfs-api';
 
-const contractAddress = "0xd107ad248e9d268b7f65870d988b616fb2bacc8a";
+const contractAddress = "0xe0540eb9bc31af04fe22df0b23a6076673790a35";
 
 const privateKey = "EEFD9B722FDB3186875E521C87745DC102ABE04A944BCC485DAB385D2949842F";
 const publicKey ="0xaD3843ed864169D4e840651A49bD794F12095162";
 
-const abi = [
+const abi =[
 	{
 		"constant": false,
 		"inputs": [
@@ -57,6 +57,10 @@ const abi = [
 				"type": "string"
 			},
 			{
+				"name": "_studentId",
+				"type": "string"
+			},
+			{
 				"name": "uploader",
 				"type": "string"
 			}
@@ -71,11 +75,11 @@ const abi = [
 		"constant": false,
 		"inputs": [
 			{
-				"name": "_username",
+				"name": "username",
 				"type": "string"
 			},
 			{
-				"name": "_password",
+				"name": "password",
 				"type": "string"
 			}
 		],
@@ -118,18 +122,40 @@ const abi = [
 		"type": "function"
 	},
 	{
-		"constant": true,
+		"constant": false,
 		"inputs": [
 			{
-				"name": "_hast",
+				"name": "_username",
+				"type": "string"
+			},
+			{
+				"name": "_password",
 				"type": "string"
 			}
 		],
-		"name": "checkHashExsist",
+		"name": "signupUploader",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_hash",
+				"type": "string"
+			}
+		],
+		"name": "checkSignedBefore",
 		"outputs": [
 			{
 				"name": "",
-				"type": "bool"
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
 			}
 		],
 		"payable": false,
@@ -144,15 +170,11 @@ const abi = [
 				"type": "string"
 			}
 		],
-		"name": "checkSignedBefore",
+		"name": "checkSignedupBefore",
 		"outputs": [
 			{
 				"name": "",
-				"type": "string"
-			},
-			{
-				"name": "",
-				"type": "string"
+				"type": "bool"
 			}
 		],
 		"payable": false,
@@ -371,6 +393,25 @@ const abi = [
 				"type": "string"
 			}
 		],
+		"name": "getStudentId",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_hash",
+				"type": "string"
+			}
+		],
 		"name": "getTransactions",
 		"outputs": [
 			{
@@ -414,6 +455,25 @@ const abi = [
 		"payable": false,
 		"stateMutability": "view",
 		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_address",
+				"type": "address"
+			}
+		],
+		"name": "signinAdmin",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
 	}
 ]
 
@@ -444,7 +504,7 @@ const prepairTransaction  = (privateKey,data,nonce) => {
             data : data,
             nonce : nonce,
             gasPrice :currentWeb3.toHex(currentWeb3.toWei('20', 'gwei')),
-            to : '0xd107ad248e9d268b7f65870d988b616fb2bacc8a',
+            to : '0xe0540eb9bc31af04fe22df0b23a6076673790a35',
             value : 0,
             gasLimit: 1000000
             

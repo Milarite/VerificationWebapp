@@ -109,7 +109,7 @@ isArabic :isArabic
                 data : data,
                 nonce : nonce,
                 gasPrice :currentWeb3.toHex(currentWeb3.toWei('20', 'gwei')),
-                to : '0xd107ad248e9d268b7f65870d988b616fb2bacc8a',
+                to : '0xe0540eb9bc31af04fe22df0b23a6076673790a35',
                 value : 0,
                 gasLimit: 1000000
                 
@@ -177,6 +177,10 @@ return rawTx ;
                         "type": "string"
                     },
                     {
+                        "name": "_studentId",
+                        "type": "string"
+                    },
+                    {
                         "name": "uploader",
                         "type": "string"
                     }
@@ -191,11 +195,11 @@ return rawTx ;
                 "constant": false,
                 "inputs": [
                     {
-                        "name": "_username",
+                        "name": "username",
                         "type": "string"
                     },
                     {
-                        "name": "_password",
+                        "name": "password",
                         "type": "string"
                     }
                 ],
@@ -238,18 +242,40 @@ return rawTx ;
                 "type": "function"
             },
             {
-                "constant": true,
+                "constant": false,
                 "inputs": [
                     {
-                        "name": "_hast",
+                        "name": "_username",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_password",
                         "type": "string"
                     }
                 ],
-                "name": "checkHashExsist",
+                "name": "signupUploader",
+                "outputs": [],
+                "payable": false,
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_hash",
+                        "type": "string"
+                    }
+                ],
+                "name": "checkSignedBefore",
                 "outputs": [
                     {
                         "name": "",
-                        "type": "bool"
+                        "type": "string"
+                    },
+                    {
+                        "name": "",
+                        "type": "string"
                     }
                 ],
                 "payable": false,
@@ -264,15 +290,11 @@ return rawTx ;
                         "type": "string"
                     }
                 ],
-                "name": "checkSignedBefore",
+                "name": "checkSignedupBefore",
                 "outputs": [
                     {
                         "name": "",
-                        "type": "string"
-                    },
-                    {
-                        "name": "",
-                        "type": "string"
+                        "type": "bool"
                     }
                 ],
                 "payable": false,
@@ -491,6 +513,25 @@ return rawTx ;
                         "type": "string"
                     }
                 ],
+                "name": "getStudentId",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_hash",
+                        "type": "string"
+                    }
+                ],
                 "name": "getTransactions",
                 "outputs": [
                     {
@@ -534,12 +575,31 @@ return rawTx ;
                 "payable": false,
                 "stateMutability": "view",
                 "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_address",
+                        "type": "address"
+                    }
+                ],
+                "name": "signinAdmin",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "bool"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
             }
         ]
      const contract =  this.web3.eth.contract(abi);
 const privateKey = "EEFD9B722FDB3186875E521C87745DC102ABE04A944BCC485DAB385D2949842F";
 const publicKey ="0xaD3843ed864169D4e840651A49bD794F12095162";
-        const smartInstance = contract.at("0xd107ad248e9d268b7f65870d988b616fb2bacc8a");
+        const smartInstance = contract.at("0xe0540eb9bc31af04fe22df0b23a6076673790a35");
 
         let h = smartInstance.checkHashExsist.call(_hash);
     } 
@@ -594,6 +654,10 @@ const publicKey ="0xaD3843ed864169D4e840651A49bD794F12095162";
                         "type": "string"
                     },
                     {
+                        "name": "_studentId",
+                        "type": "string"
+                    },
+                    {
                         "name": "uploader",
                         "type": "string"
                     }
@@ -608,11 +672,11 @@ const publicKey ="0xaD3843ed864169D4e840651A49bD794F12095162";
                 "constant": false,
                 "inputs": [
                     {
-                        "name": "_username",
+                        "name": "username",
                         "type": "string"
                     },
                     {
-                        "name": "_password",
+                        "name": "password",
                         "type": "string"
                     }
                 ],
@@ -655,18 +719,40 @@ const publicKey ="0xaD3843ed864169D4e840651A49bD794F12095162";
                 "type": "function"
             },
             {
-                "constant": true,
+                "constant": false,
                 "inputs": [
                     {
-                        "name": "_hast",
+                        "name": "_username",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_password",
                         "type": "string"
                     }
                 ],
-                "name": "checkHashExsist",
+                "name": "signupUploader",
+                "outputs": [],
+                "payable": false,
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_hash",
+                        "type": "string"
+                    }
+                ],
+                "name": "checkSignedBefore",
                 "outputs": [
                     {
                         "name": "",
-                        "type": "bool"
+                        "type": "string"
+                    },
+                    {
+                        "name": "",
+                        "type": "string"
                     }
                 ],
                 "payable": false,
@@ -681,15 +767,11 @@ const publicKey ="0xaD3843ed864169D4e840651A49bD794F12095162";
                         "type": "string"
                     }
                 ],
-                "name": "checkSignedBefore",
+                "name": "checkSignedupBefore",
                 "outputs": [
                     {
                         "name": "",
-                        "type": "string"
-                    },
-                    {
-                        "name": "",
-                        "type": "string"
+                        "type": "bool"
                     }
                 ],
                 "payable": false,
@@ -908,6 +990,25 @@ const publicKey ="0xaD3843ed864169D4e840651A49bD794F12095162";
                         "type": "string"
                     }
                 ],
+                "name": "getStudentId",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_hash",
+                        "type": "string"
+                    }
+                ],
                 "name": "getTransactions",
                 "outputs": [
                     {
@@ -951,22 +1052,42 @@ const publicKey ="0xaD3843ed864169D4e840651A49bD794F12095162";
                 "payable": false,
                 "stateMutability": "view",
                 "type": "function"
+            },
+            {
+                "constant": true,
+                "inputs": [
+                    {
+                        "name": "_address",
+                        "type": "address"
+                    }
+                ],
+                "name": "signinAdmin",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "bool"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
             }
         ]
      const contract =  this.web3.eth.contract(abi);
 const privateKey = "EEFD9B722FDB3186875E521C87745DC102ABE04A944BCC485DAB385D2949842F";
 const publicKey ="0xaD3843ed864169D4e840651A49bD794F12095162";
-        const smartInstance = contract.at("0xd107ad248e9d268b7f65870d988b616fb2bacc8a");
+        const smartInstance = contract.at("0xe0540eb9bc31af04fe22df0b23a6076673790a35");
 
 
 //////// add raw transaction 
 let data =  smartInstance.addHash.getData(String(_hash),
-"muath","mohammad","25","male","3.5","cis","UniJor","9931039485","30/06/1993","Amman" , "Muath");
+"muath","mohammad","25","male","3.5","cis","UniJor","9931039485","30/06/1993","Amman" , "Muath","_studentId");
 let app = this;
 
 app.web3.eth.getTransactionCount(publicKey,function(err,nonce){
 let raw=app.prepairTransaction(privateKey,data,nonce);
 app.web3.eth.sendRawTransaction(raw, function (err, transactionHash) {
+    console.log("tx",transactionHash);
 if(err)
 console.log("err1",err);
 if(!err)
