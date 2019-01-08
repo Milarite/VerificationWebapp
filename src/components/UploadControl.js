@@ -1087,21 +1087,37 @@ let app = this;
 app.web3.eth.getTransactionCount(publicKey,function(err,nonce){
 let raw=app.prepairTransaction(privateKey,data,nonce);
 app.web3.eth.sendRawTransaction(raw, function (err, transactionHash) {
-    console.log("tx",transactionHash);
-if(err)
-console.log("err1",err);
-if(!err)
 
-{
+
     
     if(!err)
     
     {
+
+        let txData = smartInstance.saveTransaction.getData(String(_hash),transactionHash);
+        app.web3.eth.getTransactionCount(publicKey,function(err,nonce2){
+
+            let rawTx=app.prepairTransaction(privateKey,txData,nonce2+1);
+            app.web3.eth.sendRawTransaction(rawTx, function (err2, transactionHash2) {
+if(err2)
+{
+    console.log("err2",err2);
+    return;
+}
+                if(!err2)
+                {
+                    app.props.onUploadLoadSpiner(false);
+                    JSAlert.alert(app.state.isArabic ?    (app.state.ar.uploadsucc) : (app.state.en.uploadsucc));
+                    app.setState({url:false});
+                    app.setState({hash_id:_hash});
+                }
+
+            });
+
+        });
+
       
-        app.props.onUploadLoadSpiner(false);
-        JSAlert.alert(app.state.isArabic ?    (app.state.ar.uploadsucc) : (app.state.en.uploadsucc));
-        app.setState({url:false});
-        app.setState({hash_id:_hash});
+       
        
     }
 ///////// wait for transaction for be mined 
@@ -1111,7 +1127,6 @@ if(!err)
       
       
     
-}
 
 
 

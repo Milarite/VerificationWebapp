@@ -571,11 +571,10 @@ let _name=_firstName +" "+_lastName;
     })
 
     
-   this.setState({hash:txHash, show:true});
+   this.setState({ show:true});
  
    
-    
-
+   
 
     }
 
@@ -604,7 +603,7 @@ let _name=_firstName +" "+_lastName;
                                     </div>
                                 </div>
                                 <div class='tx'>
-                                <a hidden={!this.state.show} style={{color:"black"}} href={`https://rinkeby.etherscan.io/tx/${this.state.txHash}`}>{ this.state.isArabic ?    (this.state.ar.txInformation) : (this.state.en.txInformation) }</a>
+                                <a hidden={!this.state.show} style={{color:"black"}} href={'https://rinkeby.etherscan.io/tx/'+this.state.txHash}>{ this.state.isArabic ?    (this.state.ar.txInformation) : (this.state.en.txInformation) }</a>
                                 </div>
                         
                                 <div className="info"  hidden={!this.state.showInfo}>
